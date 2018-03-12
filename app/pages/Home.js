@@ -31,6 +31,13 @@ const DATA = [
 ];
 class Home extends Component {
 
+    static navigationOptions = ({ navigation }) => ({
+        // title: '',
+        tabBarIcon: ({ tintColor }) => (
+            <Icon name="md-home" size={30} color={tintColor} />
+        ),
+    });
+
     constructor(props){
         super(props);
         this.state={

@@ -1,10 +1,66 @@
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 import Home from '../pages/Home';
+import Community from '../pages/CommunityAll';
 
-const App = StackNavigator(
+const TabContainer = TabNavigator(
     {
         Home: {
             screen: Home,
+            navigationOptions: {
+                tabBarLabel: '首页',
+            },
+        },
+        Community: {
+            screen: Community,
+            navigationOptions: {
+                tabBarLabel: '活动',
+            },
+        },
+        Org: {
+            screen: Home,
+            navigationOptions: {
+                tabBarLabel: '组织',
+            },
+        },
+        Mine: {
+            screen: Home,
+            navigationOptions: {
+                tabBarLabel: '我的',
+            },
+        },
+    },
+    {
+        initialRouteName: 'Home',
+        lazy: true,
+        swipeEnabled: false,
+        tabBarPosition: 'bottom',
+        tabBarOptions: {
+            activeTintColor: '#91B1C2',
+            inactiveTintColor: '#444444',
+            showIcon: true,
+            style: {
+                backgroundColor: '#fff',
+                elevation: 0,//Android
+                shadowOpacity: 0,//iOS
+            },
+            indicatorStyle: {
+                opacity: 0,
+            },
+            tabStyle: {
+                padding: 0,
+            },
+            labelStyle: {
+                fontSize: 10
+            }
+        }
+    }
+);
+
+
+const App = StackNavigator(
+    {
+        Main: {
+            screen: TabContainer,
             navigationOptions: {
                 header: null
             }
