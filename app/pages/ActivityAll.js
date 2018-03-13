@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
-import styles from '../style/CommunityAll';
+import styles from '../style/ActivityAll';
 import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import IconBlock from '../components/IconBlock';
 
@@ -31,7 +31,7 @@ const DATA = [
         time:'2018.3.11 14:00',
     }
 ];
-class CommunityAll extends Component {
+class ActivityAll extends Component {
 
     constructor(props){
         super(props);
@@ -54,23 +54,46 @@ class CommunityAll extends Component {
                 <View style={styles.cardHead}>
                     <Image
                         resizeMode='stretch'
-                        style={{ width: 40, height: 40, }}
+                        style={{ width: 60, height: 60, marginBottom:10,}}
                         source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
                     />
+                    <View style={{flexDirection:'row',flexWrap:'wrap'}}>
+                        <View style={{paddingHorizontal:3,paddingVertical:1,backgroundColor:'#000',borderRadius:5,marginHorizontal:1,marginVertical:3,}}>
+                            <Text style={{fontSize:10,color:'#fff'}}>标签</Text>
+                        </View>
+                        <View style={{paddingHorizontal:3,paddingVertical:1,backgroundColor:'#000',borderRadius:5,marginHorizontal:1,marginVertical:3,}}>
+                            <Text style={{fontSize:10,color:'#fff'}}>标签</Text>
+                        </View>
+                        <View style={{paddingHorizontal:3,paddingVertical:1,backgroundColor:'#000',borderRadius:5,marginHorizontal:1,marginVertical:3,}}>
+                            <Text style={{fontSize:10,color:'#fff'}}>标签</Text>
+                        </View>
+                        <View style={{paddingHorizontal:3,paddingVertical:1,backgroundColor:'#000',borderRadius:5,marginHorizontal:1,marginVertical:3,}}>
+                            <Text style={{fontSize:10,color:'#fff'}}>标签</Text>
+                        </View>
+                    </View>
                 </View>
                 <View style={styles.cardText}>
                     <View>
-                        <Text style={{fontSize:16,color:'#000'}}>
+                        <Text style={{fontSize:16,color:'#000',marginBottom:10,}}>
                             {item.name}
                         </Text>
-                        <Text style={{fontSize:14,color:'gray'}}>
+                        <Text style={{fontSize:12,color:'gray'}}>
+                            经世楼A308
+                        </Text>
+                        <Text style={{fontSize:12,color:'gray'}}>
+                            2018-3-13 15：30
+                        </Text>
+                        <Text style={{fontSize:14,color:'gray',marginTop:10,}}>
                             {item.org}
                         </Text>
                     </View>
                     <View style={{alignItems:'flex-end'}}>
-                        <Text style={{fontSize:12,color:'grey'}}>
-                            {item.time}
-                        </Text>
+                        <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                            <Text style={{fontSize:12,color:'grey',marginRight:5,}}>
+                                {item.time}
+                            </Text>
+                            <Icon name="md-eye" size={20} color={'#000'} />
+                        </View>
                     </View>
                 </View>
             </View>
@@ -83,7 +106,7 @@ class CommunityAll extends Component {
                 <View style={styles.interstCom}>
                     <View>
                         <Text style={styles.title}>
-                            所有组织
+                            所有活动
                         </Text>
                     </View>
                     <View>
@@ -105,4 +128,4 @@ export default connect(
     (dispatch) => ({
         
     })
-)(CommunityAll)
+)(ActivityAll)

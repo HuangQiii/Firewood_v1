@@ -1,6 +1,8 @@
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import Home from '../pages/Home';
-import Community from '../pages/CommunityAll';
+import Community from '../pages/Community';
+import Activity from '../pages/Activity';
+import Mine from '../pages/Mine';
 
 const TabContainer = TabNavigator(
     {
@@ -13,24 +15,24 @@ const TabContainer = TabNavigator(
         Community: {
             screen: Community,
             navigationOptions: {
-                tabBarLabel: '活动',
-            },
-        },
-        Org: {
-            screen: Home,
-            navigationOptions: {
                 tabBarLabel: '组织',
             },
         },
+        Activity: {
+            screen: Activity,
+            navigationOptions: {
+                tabBarLabel: '活动',
+            },
+        },
         Mine: {
-            screen: Home,
+            screen: Mine,
             navigationOptions: {
                 tabBarLabel: '我的',
             },
         },
     },
     {
-        initialRouteName: 'Home',
+        initialRouteName: 'Mine',
         lazy: true,
         swipeEnabled: false,
         tabBarPosition: 'bottom',

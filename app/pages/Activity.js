@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
-import styles from '../style/CommunityAll';
-import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
+import styles from '../style/Community';
+import ScrollableTabView, {ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import IconBlock from '../components/IconBlock';
+import ActivityAll from './ActivityAll';
 
 let CONNECT_BOOL;
 const { width, height } = Dimensions.get('window');
@@ -12,16 +13,16 @@ const DATA = [
     {
         id:1,
         name:'光华园',
-        org:'党委宣传部直属，西南财经大学唯一学生门户网站',
+        org:'光华园',
         des:'我们要在哪里哪里举办什么什么了，丰厚奖品等你来拿，具体链接请戳。。。',
-        time:'2000人关注',
+        time:'2018.3.11 14:00',
     },
     {
         id:2,
-        name:'校团委',
-        org:'校团委校团委校团委校团委校团委校团委校团委',
+        name:'十佳歌手',
+        org:'恩恩恩',
         des:'我们要在哪里哪里举办什么什么了，丰厚奖品等你来拿，具体链接请戳。。。',
-        time:'2000人关注',
+        time:'2018.3.11 14:00',
     },
     {
         id:3,
@@ -31,7 +32,14 @@ const DATA = [
         time:'2018.3.11 14:00',
     }
 ];
-class CommunityAll extends Component {
+class Activity extends Component {
+
+    static navigationOptions = ({ navigation }) => ({
+        // title: '',
+        tabBarIcon: ({ tintColor }) => (
+            <Icon name="md-pricetag" size={30} color={tintColor} />
+        ),
+    });
 
     constructor(props){
         super(props);
@@ -64,7 +72,7 @@ class CommunityAll extends Component {
                             {item.name}
                         </Text>
                         <Text style={{fontSize:14,color:'gray'}}>
-                            {item.org}
+                            {item.des}
                         </Text>
                     </View>
                     <View style={{alignItems:'flex-end'}}>
@@ -78,21 +86,32 @@ class CommunityAll extends Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation;
         return (
-            <View>
-                <View style={styles.interstCom}>
-                    <View>
-                        <Text style={styles.title}>
-                            所有组织
-                        </Text>
-                    </View>
-                    <View>
-                        <ListView
-                            dataSource={this.state.dataSource}
-                            renderRow={this.renderItem}
+            <View style={styles.container}>
+                <ScrollableTabView
+                    initialPage={0}
+                    renderTabBar={() => (
+                        <ScrollableTabBar
+                            tabStyle={{paddingBottom: 0}}
+                            textStyle={{fontSize: 16}}
                         />
+                    )}
+                    tabBarBackgroundColor="#fcfcfc"
+                    tabBarUnderlineStyle={{backgroundColor: '#3e9ce9',height: 2}}
+                    tabBarActiveTextColor="#3e9ce9"
+                    tabBarInactiveTextColor="#aaaaaa"
+                    >
+                    <View tabLabel='最新活动'>
                     </View>
-                </View>
+                    <View tabLabel='最热活动'>
+                    </View>
+                    <View tabLabel='猜你喜欢'>
+                    </View>
+                    <View tabLabel='全部'>
+                        <ActivityAll />
+                    </View>
+                </ScrollableTabView>
             </View>
         );
     }
@@ -105,4 +124,4 @@ export default connect(
     (dispatch) => ({
         
     })
-)(CommunityAll)
+)(Activity)

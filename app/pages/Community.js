@@ -3,8 +3,9 @@ import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, Toucha
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from '../style/Community';
-import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
+import ScrollableTabView, {ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import IconBlock from '../components/IconBlock';
+import CommunityAll from './CommunityAll';
 
 let CONNECT_BOOL;
 const { width, height } = Dimensions.get('window');
@@ -87,13 +88,22 @@ class Home extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            // <ScrollableTabView
-            //     style={{marginTop: 10, }}
-            //     initialPage={1}
-            //     renderTabBar={() => <DefaultTabBar />}
-            // >
-            //     <View tabLabel='我感兴趣的组织'>
-                    <View style={styles.container}>
+            <View style={styles.container}>
+                <ScrollableTabView
+                    initialPage={0}
+                    renderTabBar={() => (
+                        <ScrollableTabBar
+                            tabStyle={{paddingBottom: 0,flex:1}}
+                            textStyle={{fontSize: 16}}
+                        />
+                    )}
+                    tabBarBackgroundColor="#fcfcfc"
+                    tabBarUnderlineStyle={{backgroundColor: '#3e9ce9',height: 2}}
+                    tabBarActiveTextColor="#3e9ce9"
+                    tabBarInactiveTextColor="#aaaaaa"
+                    >
+                    <View tabLabel='我感兴趣的组织'>
+                        <View>
                         <View style={styles.interstCom}>
                             <View>
                                 <Text style={styles.title}>
@@ -129,9 +139,12 @@ class Home extends Component {
                             </View>
                         </View>
                     </View>
-            //     </View>
-            //     <Text tabLabel='全部组织'>all</Text>
-            // </ScrollableTabView>
+                    </View>
+                    <View tabLabel='全部组织'>
+                        <CommunityAll />
+                    </View>
+                </ScrollableTabView>
+            </View>
         );
     }
 }
