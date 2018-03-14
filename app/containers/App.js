@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import Community from '../pages/Community';
 import Activity from '../pages/Activity';
 import Mine from '../pages/Mine';
+import OneActivoty from '../pages/OneActivity';
 
 const TabContainer = TabNavigator(
     {
@@ -60,7 +61,10 @@ const TabContainer = TabNavigator(
 
 
 const App = StackNavigator(
-    {
+    {   
+        OneActivoty:{
+            screen:OneActivoty,
+        },
         Main: {
             screen: TabContainer,
             navigationOptions: {
@@ -72,7 +76,7 @@ const App = StackNavigator(
         headerMode: 'screen',
         navigationOptions: {
             headerStyle: {
-                backgroundColor: '#fab614'
+                backgroundColor: 'grey'
             },
             headerTitleStyle: {
                 color: '#fff',
