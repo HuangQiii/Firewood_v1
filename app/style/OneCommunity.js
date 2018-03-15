@@ -11,15 +11,15 @@ var styles = StyleSheet.create({
     header: {
         width:width,
         height:200,
-        position:'relative',
+        backgroundColor:'#000',
+        alignItems:'center',
+        justifyContent:'center',
     },
     headerText:{
-        width:width,
-        position:'absolute',
-        left:0,
-        bottom:0,
         paddingHorizontal:20,
         paddingVertical:15,
+        alignItems:'center',
+        justifyContent:'center',
     },
     section: {
         paddingHorizontal:20,
