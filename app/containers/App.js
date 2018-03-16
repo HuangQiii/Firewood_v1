@@ -5,6 +5,7 @@ import Activity from '../pages/Activity';
 import Mine from '../pages/Mine';
 import OneActivoty from '../pages/OneActivity';
 import OneCommunity from '../pages/OneCommunity';
+import OneUser from '../pages/OneUser';
 
 const TabContainer = TabNavigator(
     {
@@ -63,6 +64,9 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {   
+        OneUser:{
+            screen:OneUser,
+        },
         OneCommunity:{
             screen:OneCommunity,
         },
