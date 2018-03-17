@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
-import styles from '../style/Community';
+import styles from '../../style/Community';
 import ScrollableTabView, {ScrollableTabBar, } from 'react-native-scrollable-tab-view';
-import IconBlock from '../components/IconBlock';
+import IconBlock from '../../components/IconBlock';
 import ActivityAll from './ActivityAll';
+import CommunityAll from './CommunityAll';
 
 let CONNECT_BOOL;
 const { width, height } = Dimensions.get('window');
@@ -32,7 +33,7 @@ const DATA = [
         time:'2018.3.11 14:00',
     }
 ];
-class Activity extends Component {
+class Join extends Component {
 
     static navigationOptions = ({ navigation }) => ({
         // title: '',
@@ -102,25 +103,11 @@ class Activity extends Component {
                     tabBarActiveTextColor="#3e9ce9"
                     tabBarInactiveTextColor="#aaaaaa"
                     >
-                    <View tabLabel='最新活动'>
-                        <ActivityAll
-                            navigation={this.props.navigation}
-                        />
+                    <View tabLabel='活动'>
+                        <ActivityAll navigation={this.props.navigation} />
                     </View>
-                    <View tabLabel='最热活动'>
-                        <ActivityAll
-                            navigation={this.props.navigation}
-                        />
-                    </View>
-                    <View tabLabel='猜你喜欢'>
-                        <ActivityAll
-                            navigation={this.props.navigation}
-                        />
-                    </View>
-                    <View tabLabel='全部'>
-                        <ActivityAll
-                            navigation={this.props.navigation}
-                        />
+                    <View tabLabel='组织'>
+                        <CommunityAll navigation={this.props.navigation} />
                     </View>
                 </ScrollableTabView>
             </View>
@@ -135,4 +122,4 @@ export default connect(
     (dispatch) => ({
         
     })
-)(Activity)
+)(Join)

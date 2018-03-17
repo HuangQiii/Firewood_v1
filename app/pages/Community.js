@@ -58,30 +58,34 @@ class Home extends Component {
 
     renderItem = (item) => {
         return (
-            <View style={styles.card}>
-                <View style={styles.cardHead}>
-                    <Image
-                        resizeMode='stretch'
-                        style={{ width: 40, height: 40, }}
-                        source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
-                    />
-                </View>
-                <View style={styles.cardText}>
-                    <View>
-                        <Text style={{fontSize:16,color:'#000'}}>
-                            {item.name}
-                        </Text>
-                        <Text style={{fontSize:14,color:'gray'}}>
-                            {item.des}
-                        </Text>
+            <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('OneActivity')}
+            >
+                <View style={styles.card}>
+                    <View style={styles.cardHead}>
+                        <Image
+                            resizeMode='stretch'
+                            style={{ width: 40, height: 40, }}
+                            source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
+                        />
                     </View>
-                    <View style={{alignItems:'flex-end'}}>
-                        <Text style={{fontSize:12,color:'grey'}}>
-                            {item.time}
-                        </Text>
+                    <View style={styles.cardText}>
+                        <View>
+                            <Text style={{fontSize:16,color:'#000'}}>
+                                {item.name}
+                            </Text>
+                            <Text style={{fontSize:14,color:'gray'}}>
+                                {item.des}
+                            </Text>
+                        </View>
+                        <View style={{alignItems:'flex-end'}}>
+                            <Text style={{fontSize:12,color:'grey'}}>
+                                {item.time}
+                            </Text>
+                        </View>
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         );
     }
 
@@ -111,18 +115,20 @@ class Home extends Component {
                                 </Text>
                             </View>
                             <ScrollView horizontal={true}>
-                                    <IconBlock
-                                        content={'光华园'}
-                                        contentSize={12}
-                                        height={80}
-                                        width={80}
-                                    />
-                                    <IconBlock
-                                        content={'党宣'}
-                                        contentSize={12}
-                                        height={80}
-                                        width={80}
-                                    />
+                                <IconBlock
+                                    content={'光华园'}
+                                    contentSize={12}
+                                    height={80}
+                                    width={80}
+                                    onPress={() => navigate('OneCommunity')}
+                                />
+                                <IconBlock
+                                    content={'党宣'}
+                                    contentSize={12}
+                                    height={80}
+                                    width={80}
+                                    onPress={() => navigate('OneCommunity')}
+                                />
                             </ScrollView>
                         </View>
                         <View style={styles.interstCom}>
@@ -141,7 +147,9 @@ class Home extends Component {
                     </View>
                     </View>
                     <View tabLabel='全部组织'>
-                        <CommunityAll />
+                        <CommunityAll 
+                            navigation={this.props.navigation}
+                        />
                     </View>
                 </ScrollableTabView>
             </View>

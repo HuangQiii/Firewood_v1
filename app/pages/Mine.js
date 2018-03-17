@@ -73,39 +73,55 @@ class Mine extends Component {
                         />
                     </View>
                 </View>
-                <View style={styles.placeholder}>
-                    <View style={styles.placeholderIcon}>
-                        <Icon name="md-people" size={30} color={'#000'} />
+                <TouchableOpacity
+                    onPress={()=>this.props.navigation.navigate('OneCommunity')}
+                >
+                    <View style={styles.placeholder}>
+                        <View style={styles.placeholderIcon}>
+                            <Icon name="md-people" size={30} color={'#000'} />
+                        </View>
+                        <View>
+                            <Text>我的组织</Text>
+                            <Text>光华园</Text>
+                        </View>
                     </View>
-                    <View>
-                        <Text>我的组织</Text>
-                        <Text>光华园</Text>
-                    </View>
-                </View>
+                </TouchableOpacity>
                 <View style={styles.split}></View>
                 <View style={styles.mainMine}>
                     <View>
                         <Text style={styles.title}>我的柴火</Text>
                     </View>
                     <View style={styles.mainMineArea}>
-                        <View style={styles.mainMineBlock}>
-                            <View style={styles.mainMineBlockText}>
-                                <Text style={{fontSize:18}}>我的创建</Text>
-                                <Text style={{fontSize:12,marginTop:20,}}>15 个活动</Text>
+                        <TouchableOpacity
+                            onPress={()=>navigate('New')}
+                        >
+                            <View style={styles.mainMineBlock}>
+                                <View style={styles.mainMineBlockText}>
+                                    <Text style={{fontSize:18}}>我的创建</Text>
+                                    <Text style={{fontSize:12,marginTop:20,}}>15 个活动</Text>
+                                </View>
                             </View>
-                        </View>
-                        <View style={styles.mainMineBlock}>
-                            <View style={styles.mainMineBlockText}>
-                                <Text style={{fontSize:18}}>我的关注</Text>
-                                <Text style={{fontSize:12,marginTop:20,}}>15 个活动</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={()=>navigate('Attention')}
+                        >
+                            <View style={styles.mainMineBlock}>
+                                <View style={styles.mainMineBlockText}>
+                                    <Text style={{fontSize:18}}>我的关注</Text>
+                                    <Text style={{fontSize:12,marginTop:20,}}>15 个活动</Text>
+                                </View>
                             </View>
-                        </View>
-                        <View style={styles.mainMineBlock}>
-                            <View style={styles.mainMineBlockText}>
-                                <Text style={{fontSize:18}}>我的参与</Text>
-                                <Text style={{fontSize:12,marginTop:20,}}>15 个活动</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={()=>navigate('Join')}
+                        >
+                            <View style={styles.mainMineBlock}>
+                                <View style={styles.mainMineBlockText}>
+                                    <Text style={{fontSize:18}}>我的参与</Text>
+                                    <Text style={{fontSize:12,marginTop:20,}}>15 个活动</Text>
+                                </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.split}></View>

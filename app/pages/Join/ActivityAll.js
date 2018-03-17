@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
-import styles from '../style/ActivityAll';
+import styles from '../../style/ActivityAll';
 import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
-import IconBlock from '../components/IconBlock';
+import IconBlock from '../../components/IconBlock';
 
 let CONNECT_BOOL;
 const { width, height } = Dimensions.get('window');

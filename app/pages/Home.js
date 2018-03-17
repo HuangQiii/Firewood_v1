@@ -32,7 +32,6 @@ const DATA = [
 class Home extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        // title: '',
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-home" size={30} color={tintColor} />
         ),
@@ -48,56 +47,39 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        NetInfo.isConnected.addEventListener(
-            'connectionChange',
-            (isConnected) => { this.handleIsConnectedChange(isConnected) }
-        );
         this.setState({
             dataSource:this.state.dataSource.cloneWithRows(DATA),
         });
     }
 
-    componentWillUnmount() {
-        NetInfo.isConnected.removeEventListener('connectionChange', this.handleIsConnectedChange);
-    }
-
-    handleIsConnectedChange(isConnected) {
-        if (CONNECT_BOOL === false && isConnected === true) {
-            console.log('网络发生变化了，当前为' + isConnected);
-        }
-        CONNECT_BOOL = isConnected;
-    }
-
-    handleAppStateChange(appState) {
-        if (appState != 'active') {
-            console.log('应用处于后台状态')
-        }
-    }
-
     renderItem = (item) => {
         return (
-            <View style={styles.card}>
-                <View style={styles.cardText}>
-                    <Text style={{fontSize:18,color:'#000'}}>
-                        {item.name}
-                    </Text>
-                    <View>
-                        <Text style={{fontSize:12,color:'gray'}}>
-                            {item.des}
+            <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('OneActivity')}
+            >
+                <View style={styles.card}>
+                    <View style={styles.cardText}>
+                        <Text style={{fontSize:18,color:'#000'}}>
+                            {item.name}
                         </Text>
-                        <Text style={{fontSize:12,color:'grey'}}>
-                            {item.time}
-                        </Text>
+                        <View>
+                            <Text style={{fontSize:12,color:'gray'}}>
+                                {item.des}
+                            </Text>
+                            <Text style={{fontSize:12,color:'grey'}}>
+                                {item.time}
+                            </Text>
+                        </View>
+                    </View>
+                    <View style={styles.cardHead}>
+                        <Image
+                            resizeMode='stretch'
+                            style={{ width: 20, height: 20, }}
+                            source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
+                        />
                     </View>
                 </View>
-                <View style={styles.cardHead}>
-                    <Image
-                        resizeMode='stretch'
-                        style={{ width: 20, height: 20, }}
-                        source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
-                    />
-                </View>
-            </View>
+            </TouchableOpacity>
         );
     }
 
@@ -120,11 +102,15 @@ class Home extends Component {
                         </View>
                     </View>
                     <View style={styles.head}>
-                        <Image
-                            resizeMode='stretch'
-                            style={{ width: 50, height: 50, }}
-                            source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
-                        />
+                        <TouchableOpacity
+                            onPress={() => navigate('Mine')}
+                        >
+                            <Image
+                                resizeMode='stretch'
+                                style={{ width: 50, height: 50, }}
+                                source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
+                            />
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.placeholder}>
@@ -134,18 +120,22 @@ class Home extends Component {
                         <Text style={styles.title}>我的</Text>
                     </View>
                     <View style={styles.mainMineArea}>
-                        <View style={styles.mainMineBlock}>
-                            <View style={styles.mainMineBlockText}>
-                                <Text style={{fontSize:18}}>我的关注</Text>
-                                <Text style={{fontSize:12,marginTop:20,}}>15 个活动</Text>
+                        <TouchableOpacity
+                            onPress={()=>navigate('Attention')}
+                        >
+                            <View style={styles.mainMineBlock}>
+                                <View style={styles.mainMineBlockText}>
+                                    <Text style={{fontSize:18}}>我的关注</Text>
+                                    <Text style={{fontSize:12,marginTop:20,}}>15 个活动</Text>
+                                </View>
+                                <View style={styles.mainMineBlockIcon}>
+                                    <Icon
+                                        name={'md-star-outline'}
+                                        size={50}
+                                    />
+                                </View>
                             </View>
-                            <View style={styles.mainMineBlockIcon}>
-                                <Icon
-                                    name={'md-star-outline'}
-                                    size={50}
-                                />
-                            </View>
-                        </View>
+                        </TouchableOpacity>
                         <View style={styles.mainMineBlock}>
                             <View style={styles.mainMineBlockText}>
                                 <Text style={{fontSize:18}}>我的参与</Text>
@@ -163,7 +153,11 @@ class Home extends Component {
                 <View style={styles.new}>
                     <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
                         <Text style={styles.title}>最新活动</Text>
-                        <Text style={styles.more}>全部</Text>
+                        <TouchableOpacity
+                            onPress={() => navigate('Activity')}
+                        >
+                            <Text style={styles.more}>全部</Text>
+                        </TouchableOpacity>
                     </View>
                     <View>
                         <ListView
@@ -176,7 +170,11 @@ class Home extends Component {
                 <View style={styles.popular}>
                     <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
                         <Text style={styles.title}>最热活动</Text>
-                        <Text style={styles.more}>全部</Text>
+                        <TouchableOpacity
+                            onPress={() => navigate('Activity')}
+                        >
+                            <Text style={styles.more}>全部</Text>
+                        </TouchableOpacity>
                     </View>
                     <View>
                         <ListView

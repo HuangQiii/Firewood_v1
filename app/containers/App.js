@@ -3,9 +3,12 @@ import Home from '../pages/Home';
 import Community from '../pages/Community';
 import Activity from '../pages/Activity';
 import Mine from '../pages/Mine';
-import OneActivoty from '../pages/OneActivity';
+import OneActivity from '../pages/OneActivity';
 import OneCommunity from '../pages/OneCommunity';
 import OneUser from '../pages/OneUser';
+import Attention from '../pages/Attention/Attention';
+import Join from '../pages/Join/Join';
+import New from '../pages/New/New';
 
 const TabContainer = TabNavigator(
     {
@@ -35,7 +38,7 @@ const TabContainer = TabNavigator(
         },
     },
     {
-        initialRouteName: 'Mine',
+        initialRouteName: 'Home',
         lazy: true,
         swipeEnabled: false,
         tabBarPosition: 'bottom',
@@ -64,21 +67,30 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {   
-        OneUser:{
-            screen:OneUser,
-        },
-        OneCommunity:{
-            screen:OneCommunity,
-        },
-        OneActivoty:{
-            screen:OneActivoty,
-        },
         Main: {
             screen: TabContainer,
             navigationOptions: {
                 header: null
             }
         },
+        OneUser:{
+            screen:OneUser,
+        },
+        OneCommunity:{
+            screen:OneCommunity,
+        },
+        OneActivity:{
+            screen:OneActivity,
+        },
+        Attention:{
+            screen:Attention,
+        },
+        Join:{
+            screen:Join,
+        },
+        New:{
+            screen:New,
+        }
     },
     {
         headerMode: 'screen',
@@ -87,11 +99,11 @@ const App = StackNavigator(
                 backgroundColor: '#fff'
             },
             headerTitleStyle: {
-                color: '#fff',
+                color: '#000',
                 fontSize: 18,
                 alignSelf: 'center'
             },
-            headerTintColor: '#fff'
+            headerTintColor: '#000'
         }
     }
 );
