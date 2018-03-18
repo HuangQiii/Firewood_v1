@@ -6,11 +6,13 @@ import { ViewPropTypes, View, Text, StyleSheet, TouchableHighlight, ActivityIndi
 const propTypes = {
     leftIconName: PropTypes.string,
     iconSize: PropTypes.number,
-    iconColor: PropTypes.string,
+    leftIconColor: PropTypes.string,
+    rightIconColor:PropTypes.string,
     text: PropTypes.string,
     textSize: PropTypes.number,
     textColor: PropTypes.string,
     rightIconName: PropTypes.string,
+    borderBottom:PropTypes.bool,
     listHeight: PropTypes.number,
     overlayMarginTop: PropTypes.number,
     bgColor: PropTypes.string,
@@ -23,7 +25,7 @@ const propTypes = {
 };
 
 const List = ({
-  leftIconName, iconSize, iconColor, text, textSize, textColor, rightIconName, listHeight, overlayMarginTop, bgColor, hightLight, activeOpacity, underlayColor, onPress, disable, downloading
+  leftIconName, iconSize, rightIconColor, leftIconColor, text, textSize, textColor, rightIconName, borderBottom, listHeight, overlayMarginTop, bgColor, hightLight, activeOpacity, underlayColor, onPress, disable, downloading
 }) => (
         <View>
             {
@@ -32,7 +34,7 @@ const List = ({
                     {
                         leftIconName != '' &&
                         <View style={style.listIcon}>
-                            <Icon name={leftIconName} size={iconSize} color={iconColor} />
+                            <Icon name={leftIconName} size={iconSize} color={leftIconColor} />
                         </View>
                     }
 
@@ -43,7 +45,7 @@ const List = ({
                         <View style={{ alignItems: 'center', width: 23, flexDirection: 'row' }}>
                             {
                                 rightIconName != '' &&
-                                <Icon name={rightIconName} size={iconSize} color={iconColor} />
+                                <Icon name={rightIconName} size={iconSize} color={rightIconColor} />
                             }
                             {
                                 downloading &&
@@ -64,11 +66,11 @@ const List = ({
                     activeOpacity={activeOpacity}
                     onPress={onPress}
                 >
-                    <View style={[style.list, { marginTop: overlayMarginTop, height: listHeight, backgroundColor: bgColor }]}>
+                    <View style={[style.list, { marginTop: overlayMarginTop, height: listHeight, backgroundColor: bgColor },borderBottom ? {borderBottomWidth:1,borderBottomColor:'rgba(0, 0, 0, 0.1)',} : {}]}>
                         {
                             leftIconName != '' &&
                             <View style={style.listIcon}>
-                                <Icon name={leftIconName} size={iconSize} color={iconColor} />
+                                <Icon name={leftIconName} size={iconSize} color={leftIconColor} />
                             </View>
                         }
 
@@ -79,7 +81,7 @@ const List = ({
                             <View style={{ alignItems: 'center', width: 23, flexDirection: 'row' }}>
                                 {
                                     rightIconName != '' &&
-                                    <Icon name={rightIconName} size={iconSize} color={iconColor} />
+                                    <Icon name={rightIconName} size={iconSize} color={rightIconColor} />
                                 }
                                 {
                                     downloading &&
@@ -101,11 +103,13 @@ List.propTypes = propTypes;
 
 List.defaultProps = {
     iconSize: 14,
-    iconColor: 'rgba(0,0,0,0.65)',
+    leftIconColor:' #333',
+    rightIconColor: '#b2b2b2',
     textSize: 14,
-    textColor: 'rgba(0,0,0,0.9)',
+    textColor: '#333',
     leftIconName: '',
     rightIconName: '',
+    borderBottom:true,
     listHeight: 38,
     overlayMarginTop: 0,
     hightLight: false,
@@ -120,8 +124,6 @@ var style = StyleSheet.create({
     list: {
         paddingLeft: 17,
         flexDirection: 'row',
-        borderBottomWidth:1,
-        borderBottomColor:'#eee',
     },
     listIcon: {
         justifyContent: 'center',

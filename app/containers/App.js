@@ -39,7 +39,7 @@ const TabContainer = TabNavigator(
         },
     },
     {
-        initialRouteName: 'Home',
+        initialRouteName: 'Mine',
         lazy: true,
         swipeEnabled: false,
         tabBarPosition: 'bottom',
