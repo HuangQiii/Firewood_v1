@@ -9,6 +9,7 @@ import OneUser from '../pages/OneUser';
 import Attention from '../pages/Attention/Attention';
 import Join from '../pages/Join/Join';
 import New from '../pages/New/New';
+import { PALETTA, SIZE } from '../style/Common';
 
 const TabContainer = TabNavigator(
     {
@@ -43,8 +44,8 @@ const TabContainer = TabNavigator(
         swipeEnabled: false,
         tabBarPosition: 'bottom',
         tabBarOptions: {
-            activeTintColor: '#91B1C2',
-            inactiveTintColor: '#444444',
+            activeTintColor: PALETTA.VITAL_THEME,
+            inactiveTintColor: '#999',
             showIcon: true,
             style: {
                 backgroundColor: '#fff',

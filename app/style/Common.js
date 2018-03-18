@@ -1,0 +1,41 @@
+const BASE_FONT_SIZE = 12;
+
+export const PALETTA = {
+  VITAL_THEME: '#fab614',
+  VITAL_TITLE: '#333',
+  VITAL_LINK: '#477aac',
+
+  NORMAL_666: '#666',
+  NORMAL_888: '#888',
+  NORMAL_999: '#999',
+  NORMAL_b2: '#b2b2b2',
+  NORMAL_ccc: '#ccc',
+
+  LIGHT_BG: '#f2f4f5',
+  LOGHT_SPLIT_BG: 'rgba(0, 0, 0, 0.05)',
+  LOGHT_SPLIT: 'rgba(0, 0, 0, 0.1)',
+
+  EXTRA_1: '#808efb',
+  EXTRA_2: '#6B84F4',
+  EXTRA_3: '#3BAFE5',
+  EXTRA_4: '#3dd288',
+  EXTRA_5: '#e8ae44',
+  EXTRA_6: '#46bb64',
+  EXTRA_7: '#4babd3',
+  EXTRA_8: '#08ce95',
+  EXTRA_9: '#ffcf1f',
+  EXTRA_10: '#ff7a47',
+}
+
+export const SIZE = {
+  NORMAL_CONTENT: BASE_FONT_SIZE * 42 / 36,
+  NORMAL_TITLE: BASE_FONT_SIZE * 39 /36,
+
+  LIGHT_TIP: BASE_FONT_SIZE,
+  LIGHT_TIME: BASE_FONT_SIZE * 33 / 36,
+  LIGHT_SMALL_TIP: BASE_FONT_SIZE * 30 / 36,
+
+  VITAL_TITLE: BASE_FONT_SIZE * 45 / 36,
+  VITAL_MARKED_TITLE: BASE_FONT_SIZE * 48 / 36,
+  VITAL_NAV_TITLE: BASE_FONT_SIZE * 51 / 36, 
+}
