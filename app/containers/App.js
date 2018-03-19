@@ -1,14 +1,14 @@
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import Home from '../pages/Home';
 import Community from '../pages/Community';
-import Activity from '../pages/Activity';
+// import Activity from '../pages/Activity';
 import Mine from '../pages/Mine';
-import OneActivity from '../pages/OneActivity';
-import OneCommunity from '../pages/OneCommunity';
-import OneUser from '../pages/OneUser';
-import Attention from '../pages/Attention/Attention';
-import Join from '../pages/Join/Join';
-import New from '../pages/New/New';
+// import OneActivity from '../pages/OneActivity';
+// import OneCommunity from '../pages/OneCommunity';
+// import OneUser from '../pages/OneUser';
+// import Attention from '../pages/Attention/Attention';
+// import Join from '../pages/Join/Join';
+// import New from '../pages/New/New';
 import { PALETTA, SIZE } from '../style/Common';
 
 const TabContainer = TabNavigator(
@@ -25,12 +25,12 @@ const TabContainer = TabNavigator(
                 tabBarLabel: '组织',
             },
         },
-        Activity: {
-            screen: Activity,
-            navigationOptions: {
-                tabBarLabel: '活动',
-            },
-        },
+        // Activity: {
+        //     screen: Activity,
+        //     navigationOptions: {
+        //         tabBarLabel: '活动',
+        //     },
+        // },
         Mine: {
             screen: Mine,
             navigationOptions: {
@@ -39,7 +39,7 @@ const TabContainer = TabNavigator(
         },
     },
     {
-        initialRouteName: 'Mine',
+        initialRouteName: 'Home',
         lazy: true,
         swipeEnabled: false,
         tabBarPosition: 'bottom',
@@ -74,24 +74,24 @@ const App = StackNavigator(
                 header: null
             }
         },
-        OneUser:{
-            screen:OneUser,
-        },
-        OneCommunity:{
-            screen:OneCommunity,
-        },
-        OneActivity:{
-            screen:OneActivity,
-        },
-        Attention:{
-            screen:Attention,
-        },
-        Join:{
-            screen:Join,
-        },
-        New:{
-            screen:New,
-        }
+        // OneUser:{
+        //     screen:OneUser,
+        // },
+        // OneCommunity:{
+        //     screen:OneCommunity,
+        // },
+        // OneActivity:{
+        //     screen:OneActivity,
+        // },
+        // Attention:{
+        //     screen:Attention,
+        // },
+        // Join:{
+        //     screen:Join,
+        // },
+        // New:{
+        //     screen:New,
+        // }
     },
     {
         headerMode: 'screen',

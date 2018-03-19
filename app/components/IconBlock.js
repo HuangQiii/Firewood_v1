@@ -12,6 +12,7 @@ const propTypes = {
     iconSize:PropTypes.number,
     height:PropTypes.number,
     width:PropTypes.number,
+    ava:PropTypes.string,
 
     onPress: PropTypes.func,
     disabled: PropTypes.bool,
@@ -27,6 +28,7 @@ const IconBlock = ({
     iconSize,
     height,
     width,
+    ava,
 
     onPress,
     disabled,
@@ -44,7 +46,7 @@ const IconBlock = ({
                         <Image
                             resizeMode='stretch'
                             style={{ width: 40, height: 40, }}
-                            source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
+                            source={{uri:ava}}
                         />
                     </View>
                     :
@@ -67,6 +69,7 @@ IconBlock.defaultProps = {
     onPress() { },
     disabled: false,
     activeOpacity: 0.8,
+    ava:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg',
 
     icon:'',
     contentColor: '#000',
