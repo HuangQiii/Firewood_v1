@@ -12,23 +12,20 @@ const DATA = [
     {
         id:1,
         name:'光华园',
-        org:'党委宣传部直属，西南财经大学唯一学生门户网站',
-        des:'我们要在哪里哪里举办什么什么了，丰厚奖品等你来拿，具体链接请戳。。。',
-        time:'2000人关注',
+        des:'学生门户网站',
+        ava:'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
     {
         id:2,
         name:'校团委',
-        org:'校团委校团委校团委校团委校团委校团委校团委',
-        des:'我们要在哪里哪里举办什么什么了，丰厚奖品等你来拿，具体链接请戳。。。',
-        time:'2000人关注',
+        des:'嗯我也不知道说什么',
+        ava:'https://avatars2.githubusercontent.com/u/4129662?s=96&v=4',
     },
     {
         id:3,
         name:'舞动青春',
-        org:'恩恩恩',
-        des:'我们要在哪里哪里举办什么什么了，丰厚奖品等你来拿，具体链接请戳。。。',
-        time:'2018.3.11 14:00',
+        des:'这好像是个活动',
+        ava:'https://avatars1.githubusercontent.com/u/8046480?s=96&v=4',
     }
 ];
 class CommunityAll extends Component {
@@ -53,29 +50,29 @@ class CommunityAll extends Component {
             <TouchableOpacity
                 onPress={() => this.props.navigation.navigate('OneCommunity')}
             >
-                <View style={styles.card}>
-                    <View style={styles.cardHead}>
+            <View style={styles.orgWrapper}>
+                <View style={styles.orgList}>
+                    <View style={styles.orgHeader}>
                         <Image
                             resizeMode='stretch'
                             style={{ width: 40, height: 40, }}
-                            source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
+                            source={{uri:item.ava}}
                         />
                     </View>
-                    <View style={styles.cardText}>
-                        <View>
-                            <Text style={{fontSize:16,color:'#000'}}>
-                                {item.name}
-                            </Text>
-                            <Text style={{fontSize:14,color:'gray'}}>
-                                {item.org}
-                            </Text>
-                        </View>
-                        <View style={{alignItems:'flex-end'}}>
-                            <Text style={{fontSize:12,color:'grey'}}>
-                                {item.time}
-                            </Text>
+                    <View style={styles.orgSection}>
+                        <Text style={styles.orgName}>
+                            {item.name}
+                        </Text>
+                         <Text style={styles.orgDes}>
+                            {item.des}
+                        </Text>
+                    </View>
+                    <View style={styles.orgBehavior}>
+                        <View style={styles.orgButton}>
+                            <Text style={styles.orgButtonWord}>关注</Text>
                         </View>
                     </View>
+                </View>
                 </View>
             </TouchableOpacity>
         );
@@ -83,21 +80,14 @@ class CommunityAll extends Component {
 
     render() {
         return (
-            <View>
-                <View style={styles.interstCom}>
-                    <View>
-                        <Text style={styles.title}>
-                            所有组织
-                        </Text>
-                    </View>
-                    <View>
-                        <ListView
-                            dataSource={this.state.dataSource}
-                            renderRow={this.renderItem}
-                        />
-                    </View>
+            <ScrollView>
+                <View style={{paddingHorizontal:20}}>
+                <ListView
+                    dataSource={this.state.dataSource}
+                    renderRow={this.renderItem}
+                />
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 }

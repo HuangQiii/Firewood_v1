@@ -39,7 +39,7 @@ class Home extends Component {
                         />
                     )}
                     tabBarBackgroundColor="#fff"
-                    tabBarUnderlineStyle={{backgroundColor: '#fab614',height: 2}}
+                    tabBarUnderlineStyle={{backgroundColor: '#fab614',height: 0}}
                     tabBarActiveTextColor="#fab614"
                     tabBarInactiveTextColor="#999"
                     >

@@ -139,33 +139,33 @@ class Home extends Component {
         const { navigate } = this.props.navigation;
         return (
             <ScrollView>
-            <View>
-                <View style={styles.section}>
-                    <View style={styles.titleBlock}>
-                        <Text style={styles.title}>
-                            我关注的组织
-                        </Text>
-                    </View>
-                    <ListView
-                        dataSource={this.state.dataSourceCommunity}
-                        renderRow={this.renderCommunity}
-                        horizontal
-                    />
-                </View>
-                <View style={styles.section}>
-                    <View style={styles.titleBlock}>
-                        <Text style={styles.title}>
-                            最新动态
-                        </Text>
-                    </View>
-                    <View>
+                <View>
+                    <View style={styles.section}>
+                        <View style={styles.titleBlock}>
+                            <Text style={styles.title}>
+                                我关注的组织
+                            </Text>
+                        </View>
                         <ListView
-                            dataSource={this.state.dataSource}
-                            renderRow={this.renderItem}
+                            dataSource={this.state.dataSourceCommunity}
+                            renderRow={this.renderCommunity}
+                            horizontal
                         />
                     </View>
+                    <View style={styles.section}>
+                        <View style={styles.titleBlock}>
+                            <Text style={styles.title}>
+                                最新动态
+                            </Text>
+                        </View>
+                        <View>
+                            <ListView
+                                dataSource={this.state.dataSource}
+                                renderRow={this.renderItem}
+                            />
+                        </View>
+                    </View>
                 </View>
-            </View>
             </ScrollView>
         );
     }
