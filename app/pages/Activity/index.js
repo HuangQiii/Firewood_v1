@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
-import styles from '../style/Community';
+import styles from './style';
 import ScrollableTabView, {ScrollableTabBar, } from 'react-native-scrollable-tab-view';
-import IconBlock from '../components/IconBlock';
 import ActivityAll from './ActivityAll';
 
 let CONNECT_BOOL;
@@ -35,7 +34,6 @@ const DATA = [
 class Activity extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        // title: '',
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-pricetag" size={30} color={tintColor} />
         ),
@@ -44,45 +42,10 @@ class Activity extends Component {
     constructor(props){
         super(props);
         this.state={
-            dataSource:new ListView.DataSource({
-                rowHasChanged:(row1,row2)=>row1!==row2,
-            })
         }
     }
 
     componentDidMount() {
-        this.setState({
-            dataSource:this.state.dataSource.cloneWithRows(DATA),
-        });
-    }
-
-    renderItem = (item) => {
-        return (
-            <View style={styles.card}>
-                <View style={styles.cardHead}>
-                    <Image
-                        resizeMode='stretch'
-                        style={{ width: 40, height: 40, }}
-                        source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
-                    />
-                </View>
-                <View style={styles.cardText}>
-                    <View>
-                        <Text style={{fontSize:16,color:'#000'}}>
-                            {item.name}
-                        </Text>
-                        <Text style={{fontSize:14,color:'gray'}}>
-                            {item.des}
-                        </Text>
-                    </View>
-                    <View style={{alignItems:'flex-end'}}>
-                        <Text style={{fontSize:12,color:'grey'}}>
-                            {item.time}
-                        </Text>
-                    </View>
-                </View>
-            </View>
-        );
     }
 
     render() {
@@ -93,32 +56,22 @@ class Activity extends Component {
                     initialPage={0}
                     renderTabBar={() => (
                         <ScrollableTabBar
-                            tabStyle={{paddingBottom: 0}}
-                            textStyle={{fontSize: 16}}
+                            tabStyle={{paddingBottom: 0,flex:1,borderBottom:0,}}
+                            textStyle={{fontSize: 12}}
                         />
                     )}
-                    tabBarBackgroundColor="#fcfcfc"
-                    tabBarUnderlineStyle={{backgroundColor: '#3e9ce9',height: 2}}
-                    tabBarActiveTextColor="#3e9ce9"
-                    tabBarInactiveTextColor="#aaaaaa"
+                    tabBarBackgroundColor="#fff"
+                    tabBarUnderlineStyle={{backgroundColor: '#fab614',height: 0}}
+                    tabBarActiveTextColor="#fab614"
+                    tabBarInactiveTextColor="#999"
                     >
                     <View tabLabel='最新活动'>
                         <ActivityAll
                             navigation={this.props.navigation}
                         />
                     </View>
-                    <View tabLabel='最热活动'>
-                        <ActivityAll
-                            navigation={this.props.navigation}
-                        />
-                    </View>
-                    <View tabLabel='猜你喜欢'>
-                        <ActivityAll
-                            navigation={this.props.navigation}
-                        />
-                    </View>
-                    <View tabLabel='全部'>
-                        <ActivityAll
+                    <View tabLabel='全部活动'>
+                        <ActivityAll 
                             navigation={this.props.navigation}
                         />
                     </View>
@@ -130,9 +83,7 @@ class Activity extends Component {
 
 export default connect(
     (state) => ({
-        
     }),
     (dispatch) => ({
-        
     })
 )(Activity)
