@@ -6,7 +6,7 @@ const {width,height} = Dimensions.get('window');
 var styles = StyleSheet.create({
   container: {
       flex: 1,
-      backgroundColor: '#FFF',
+      backgroundColor: PALETTA.LIGHT_BG,
       flexDirection: 'column',
     },
     interstCom: {

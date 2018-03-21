@@ -3,9 +3,9 @@ import Home from '../pages/Home';
 import Community from '../pages/Community';
 import Activity from '../pages/Activity';
 import Mine from '../pages/Mine';
-// import OneActivity from '../pages/OneActivity';
-// import OneCommunity from '../pages/OneCommunity';
-// import OneUser from '../pages/OneUser';
+import OneActivity from '../pages/OneActivity';
+import OneCommunity from '../pages/OneCommunity';
+import OneUser from '../pages/OneUser';
 // import Attention from '../pages/Attention/Attention';
 // import Join from '../pages/Join/Join';
 // import New from '../pages/New/New';
@@ -68,21 +68,23 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {   
+       
         Main: {
             screen: TabContainer,
             navigationOptions: {
                 header: null
             }
         },
-        // OneUser:{
-        //     screen:OneUser,
-        // },
-        // OneCommunity:{
-        //     screen:OneCommunity,
-        // },
-        // OneActivity:{
-        //     screen:OneActivity,
-        // },
+         OneActivity:{
+            screen:OneActivity,
+        },
+        OneUser:{
+            screen:OneUser,
+        },
+        OneCommunity:{
+            screen:OneCommunity,
+        },
+        
         // Attention:{
         //     screen:Attention,
         // },

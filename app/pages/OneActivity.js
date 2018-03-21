@@ -6,13 +6,38 @@ import List from '../components/List';
 import styles from '../style/OneActivity';
 import IconBlock from '../components/IconBlock';
 
-let CONNECT_BOOL;
 const { width, height } = Dimensions.get('window');
-
+const DATA = [
+    {
+        id:1,
+        name:'司徒光',
+        ava:'https://avatars3.githubusercontent.com/u/7374042?s=96&v=4',
+    },
+    {
+        id:2,
+        name:'上官静',
+        ava:'https://avatars0.githubusercontent.com/u/14359427?s=96&v=4',
+    },
+];
+const DATA_COMMIT = [
+    {
+        id:1,
+        name:'公孙离',
+        des:'我也不知道说什么了',
+        ava:'https://avatars0.githubusercontent.com/u/124156?s=96&v=4',
+        time:'2018-3-15 23:32:12',
+    },
+    {
+        id:2,
+        name:'青岩井',
+        des:'我也不知道说什么了',
+        ava:'https://avatars1.githubusercontent.com/u/3919206?s=96&v=4',
+        time:'2018-3-15 23:32:12',
+    }
+]
 class Mine extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        // title: '',
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-person" size={30} color={tintColor} />
         ),
@@ -21,31 +46,63 @@ class Mine extends Component {
     constructor(props){
         super(props);
         this.state={
+            dataSource:new ListView.DataSource({
+                rowHasChanged:(row1,row2)=>row1!==row2,
+            }),
+            dataSourceCommit:new ListView.DataSource({
+                rowHasChanged:(row1,row2)=>row1!==row2,
+            }),
         }
     }
 
     componentDidMount() {
-        NetInfo.isConnected.addEventListener(
-            'connectionChange',
-            (isConnected) => { this.handleIsConnectedChange(isConnected) }
+        this.setState({
+            dataSource:this.state.dataSource.cloneWithRows(DATA),
+            dataSourceCommit:this.state.dataSourceCommit.cloneWithRows(DATA_COMMIT),
+        });
+    }
+
+    renderItem = (item) => {
+        const { navigate } = this.props.navigation;
+        return (
+            <IconBlock
+                content={item.name}
+                contentSize={14}
+                height={80}
+                width={80}
+                ava={item.ava}
+                onPress={() => navigate('OneCommunity')}
+            />
         );
     }
 
-    componentWillUnmount() {
-        NetInfo.isConnected.removeEventListener('connectionChange', this.handleIsConnectedChange);
-    }
-
-    handleIsConnectedChange(isConnected) {
-        if (CONNECT_BOOL === false && isConnected === true) {
-            console.log('网络发生变化了，当前为' + isConnected);
-        }
-        CONNECT_BOOL = isConnected;
-    }
-
-    handleAppStateChange(appState) {
-        if (appState != 'active') {
-            console.log('应用处于后台状态')
-        }
+    renderCommit = (item) => {
+        return (
+            <View style={styles.commit}>
+                <View style={styles.commitHeader}>
+                    <Image
+                        resizeMode='stretch'
+                        style={{ width: 40, height: 40, }}
+                        source={{uri:item.ava}}
+                    />
+                </View>
+                <View style={styles.commitMessage}>
+                    <View>
+                        <Text style={styles.commitName}>
+                            {item.name}
+                        </Text>
+                        <Text style={styles.commitWord}>
+                            {item.des}
+                        </Text>
+                    </View>
+                    <View style={{}}>
+                        <Text style={styles.commitTime}>
+                            {item.time}
+                        </Text>
+                    </View>
+                </View>
+            </View>
+        );
     }
 
     render() {
@@ -60,120 +117,80 @@ class Mine extends Component {
                             source={require('../images/back.png')}
                         />
                         <View style={styles.headerText}>
-                            <Text style={{fontSize:24,color:'#fff',marginBottom:10}}>日常哈啤</Text>
-                            <Text style={{fontSize:12,color:'#fff'}}>腾骧楼422</Text>
-                            <Text style={{fontSize:12,color:'#fff'}}>2018-3-15 21:38:00</Text>
+                            <View>
+                                <Text style={styles.activityName}>日常哈啤</Text>
+                                <Text style={styles.activityTip}>腾骧楼422</Text>
+                                <Text style={styles.activityTip}>2018-3-15 21:38:00</Text>
+                            </View>
                         </View>
                     </View>
                     <View style={[styles.section,{flexDirection:'row'}]}>
                         <View style={styles.btnBlock}>
-                            <View style={{paddingHorizontal:10,paddingVertical:5,backgroundColor:'#000',borderRadius:5,}}>
+                            <View style={{paddingHorizontal:10,paddingVertical:5,backgroundColor:'#477aac',borderRadius:4,}}>
                                 <Text style={{fontSize:14,color:'#fff'}}>我要关注</Text>
                             </View>
                         </View>
                         <View style={styles.btnBlock}>
-                            <View style={{paddingHorizontal:10,paddingVertical:5,backgroundColor:'#000',borderRadius:5,}}>
+                            <View style={{paddingHorizontal:10,paddingVertical:5,backgroundColor:'#477aac',borderRadius:4,}}>
                                 <Text style={{fontSize:14,color:'#fff'}}>我要参与</Text>
                             </View>
                         </View>
                     </View>
                     <View style={styles.section}>
-                        <View style={styles.text}>
+                        <View style={styles.titleBlock}>
                             <Text style={styles.title}>举办者</Text>
                         </View>
-                        <View style={[styles.body,{flexDirection:'row'}]}>
-                            <View style={{width:40,height:40,borderRadius:20,overflow:'hidden'}}>
+                        <View style={[{flexDirection:'row',alignItems:'center'}]}>
+                            <View style={styles.orgHeader}>
                                 <Image
                                     resizeMode='stretch'
                                     style={{ width: 40, height: 40, }}
-                                    source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
+                                    source={{uri:'https://avatars1.githubusercontent.com/u/2621619?s=96&v=4'}}
                                 />
                             </View>
-                            <View style={{marginLeft:20,height:40,justifyContent:'center'}}>
-                                <Text style={{fontSize:16}}>光华园</Text>
-                            </View>
+                            <Text style={styles.orgName}>光华园</Text>
                         </View>
                     </View>
                     <View style={styles.section}>
-                        <View style={styles.text}>
+                        <View style={styles.titleBlock}>
                             <Text style={styles.title}>标签</Text>
                         </View>
-                        <View style={styles.body}>
-                            <View style={{flexDirection:'row',flexWrap:'wrap'}}>
-                                <View style={{paddingHorizontal:5,paddingVertical:3,backgroundColor:'#000',borderRadius:5,marginHorizontal:5,}}>
-                                    <Text style={{fontSize:12,color:'#fff'}}>派对</Text>
-                                </View>
-                                <View style={{paddingHorizontal:5,paddingVertical:3,backgroundColor:'#000',borderRadius:5,marginHorizontal:5,}}>
-                                    <Text style={{fontSize:12,color:'#fff'}}>第二课堂</Text>
-                                </View>
-                                <View style={{paddingHorizontal:5,paddingVertical:3,backgroundColor:'#000',borderRadius:5,marginHorizontal:5,}}>
-                                    <Text style={{fontSize:12,color:'#fff'}}>奖金</Text>
-                                </View>
-                                <View style={{paddingHorizontal:5,paddingVertical:3,backgroundColor:'#000',borderRadius:5,marginHorizontal:5,}}>
-                                    <Text style={{fontSize:12,color:'#fff'}}>证书</Text>
-                                </View>
+                        <View style={styles.trendsLabel}>
+                            <View style={styles.trendsLabelWrapper}>
+                                <Text style={styles.trendsLabelWord}>第二课堂学分</Text>
+                            </View>
+                            <View style={styles.trendsLabelWrapper}>
+                                <Text style={styles.trendsLabelWord}>奖金</Text>
+                            </View>
+                            <View style={styles.trendsLabelWrapper}>
+                                <Text style={styles.trendsLabelWord}>证书</Text>
                             </View>
                         </View>
                     </View>
                     <View style={styles.section}>
-                        <View style={styles.text}>
+                        <View style={styles.titleBlock}>
                             <Text style={styles.title}>活动简介</Text>
                         </View>
-                        <View style={styles.body}>
-                            <Text>    假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介。</Text>
-                        </View>
+                        <Text>    假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介。</Text>
                     </View>
                     <View style={styles.section}>
-                        <View style={styles.text}>
+                        <View style={styles.titleBlock}>
                             <Text style={styles.title}>他们已参与</Text>
                         </View>
-                        <View style={styles.body}>
-                            <ScrollView horizontal={true}>
-                                    <IconBlock
-                                        content={'张胤东'}
-                                        contentSize={12}
-                                        height={80}
-                                        width={80}
-                                    />
-                                    <IconBlock
-                                        content={'污东'}
-                                        contentSize={12}
-                                        height={80}
-                                        width={80}
-                                    />
-                            </ScrollView>
-                        </View>
+                        <ListView
+                            dataSource={this.state.dataSource}
+                            renderRow={this.renderItem}
+                            horizontal
+                        />
                     </View>
                     <View style={styles.section}>
-                        <View style={styles.text}>
+                        <View style={styles.titleBlock}>
                             <Text style={styles.title}>评论</Text>
                         </View>
-                        <View style={styles.body}>
-                            <View style={styles.card}>
-                                <View style={styles.cardHead}>
-                                    <Image
-                                        resizeMode='stretch'
-                                        style={{ width: 40, height: 40, }}
-                                        source={{uri:'http://img.zcool.cn/community/04f92b57a1f38f0000012e7e0180f0.jpg@80w_80h_1c_1e_1o_100sh.jpg'}}
-                                    />
-                                </View>
-                                <View style={styles.cardText}>
-                                    <View>
-                                        <Text style={{fontSize:16,color:'#000'}}>
-                                            张胤东
-                                        </Text>
-                                        <Text style={{fontSize:14,color:'gray'}}>
-                                            可以干羞羞的事吗
-                                        </Text>
-                                    </View>
-                                    <View style={{}}>
-                                        <Text style={{fontSize:10,color:'grey'}}>
-                                            2018-3-15 23：26：00
-                                        </Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
+                        <ListView
+                            dataSource={this.state.dataSourceCommit}
+                            renderRow={this.renderCommit}
+                        />
                     </View>
                 </View>
             </ScrollView>
@@ -183,9 +200,7 @@ class Mine extends Component {
 
 export default connect(
     (state) => ({
-        
     }),
     (dispatch) => ({
-        
     })
 )(Mine)

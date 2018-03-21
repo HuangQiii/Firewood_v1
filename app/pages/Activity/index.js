@@ -56,7 +56,7 @@ class Activity extends Component {
                     initialPage={0}
                     renderTabBar={() => (
                         <ScrollableTabBar
-                            tabStyle={{paddingBottom: 0,flex:1,borderBottom:0,}}
+                            tabStyle={{paddingBottom: 0,borderBottom:0,}}
                             textStyle={{fontSize: 12}}
                         />
                     )}
@@ -65,6 +65,16 @@ class Activity extends Component {
                     tabBarActiveTextColor="#fab614"
                     tabBarInactiveTextColor="#999"
                     >
+                    <View tabLabel='猜你喜欢'>
+                        <ActivityAll
+                            navigation={this.props.navigation}
+                        />
+                    </View>
+                    <View tabLabel='最热活动'>
+                        <ActivityAll
+                            navigation={this.props.navigation}
+                        />
+                    </View>
                     <View tabLabel='最新活动'>
                         <ActivityAll
                             navigation={this.props.navigation}

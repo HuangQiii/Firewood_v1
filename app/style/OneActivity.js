@@ -1,12 +1,12 @@
 import { StyleSheet,Dimensions } from 'react-native';
+import { PALETTA, SIZE } from './Common';
 
 const {width,height} = Dimensions.get('window');
 
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFF',
-        flexDirection: 'column',
+        backgroundColor: PALETTA.LIGHT_BG,
     },
     header: {
         width:width,
@@ -20,40 +20,97 @@ var styles = StyleSheet.create({
         bottom:0,
         paddingHorizontal:20,
         paddingVertical:15,
+        flexDirection:'row',
+        justifyContent:'space-between',
+    },
+    activityName:{
+        fontSize:24,
+        color:'#fff',
+        marginBottom:10,
+    },
+    activityTip:{
+        fontSize:SIZE.LIGHT_TIP,
+        color:'#fff',
     },
     section: {
         paddingHorizontal:20,
         paddingVertical:15,
     },
-    text: {
+    titleBlock:{
         flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center',
+        marginBottom:15,
     },
     title: {
-        fontSize:18,
-        color:'#000',
+        fontSize:SIZE.VITAL_NAV_TITLE,
+        color:PALETTA.VITAL_TITLE,
+    },
+    more: {
+        fontSize:SIZE.LIGHT_TIP,
+        color:PALETTA.NORMAL_999,
     },
     body: {
         marginTop:15,
     },
-    card: {
-      padding:10,
-      marginBottom:10,
-    //   backgroundColor:'#eee',
-    //   borderRadius:10,
+    orgHeader:{
+        width:40,
+        height:40,
+        marginRight:20,
+        borderRadius:20,
+        overflow:'hidden',
+    },
+    orgName:{
+        fontSize:SIZE.NORMAL_CONTENT,
+        color:PALETTA.VITAL_TITLE,
+    },
+    trendsLabel:{
       flexDirection:'row',
-      height:80,
+      flexWrap:'wrap',
+      marginVertical:3,
     },
-    cardHead:{
-      width:40,
-      height:40,
-      borderRadius:20,
-      overflow:'hidden',
-      // alignSelf:'center',
+    trendsLabelWrapper:{
+      paddingHorizontal:5,
+      paddingVertical:3,
+      backgroundColor:PALETTA.LOGHT_SPLIT_BG,
+      borderRadius:4,
+      marginRight:5,
+      alignItems:'center',
+      justifyContent:'center',
     },
-    cardText:{
-      flex:1,
-      paddingLeft:10,
-      justifyContent:'space-between',
+    trendsLabelWord:{
+      fontSize:SIZE.LIGHT_TIP,
+      color:PALETTA.VITAL_TITLE,
+    },
+    
+    commit: {
+        padding:10,
+        marginBottom:10,
+        flexDirection:'row',
+        height:80,
+    },
+    commitHeader:{
+        width:40,
+        height:40,
+        borderRadius:20,
+        overflow:'hidden',
+    },
+    commitMessage:{
+        flex:1,
+        paddingLeft:10,
+        justifyContent:'space-between',
+    },
+    commitName:{
+        fontSize:SIZE.NORMAL_TITLE,
+        color:PALETTA.VITAL_LINK,
+    },
+    commitWord:{
+        fontSize:SIZE.NORMAL_CONTENT,
+        color:PALETTA.VITAL_TITLE,
+    },
+    commitTime:{
+        fontSize:SIZE.LIGHT_TIME,
+        color:PALETTA.NORMAL_b2,
     },
     btnBlock: {
         flex:1,
