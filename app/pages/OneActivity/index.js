@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
-import List from '../components/List';
-import styles from '../style/OneActivity';
-import IconBlock from '../components/IconBlock';
+import List from '../../components/List';
+import styles from './style';
+import IconBlock from '../../components/IconBlock';
 
 const { width, height } = Dimensions.get('window');
 const DATA = [
@@ -114,7 +114,7 @@ class Mine extends Component {
                         <Image
                             style={{width:width,height:200,}}
                             resizeMode = 'cover'
-                            source={require('../images/back.png')}
+                            source={require('../../images/back.png')}
                         />
                         <View style={styles.headerText}>
                             <View>

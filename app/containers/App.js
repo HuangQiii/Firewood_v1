@@ -4,8 +4,8 @@ import Community from '../pages/Community';
 import Activity from '../pages/Activity';
 import Mine from '../pages/Mine';
 import OneActivity from '../pages/OneActivity';
-import OneCommunity from '../pages/OneCommunity';
-import OneUser from '../pages/OneUser';
+import OneCommunity from '../pages/OneOrg';
+// import OneUser from '../pages/OneUser';
 // import Attention from '../pages/Attention/Attention';
 // import Join from '../pages/Join/Join';
 // import New from '../pages/New/New';
@@ -75,15 +75,16 @@ const App = StackNavigator(
                 header: null
             }
         },
-         OneActivity:{
+        OneActivity:{
             screen:OneActivity,
-        },
-        OneUser:{
-            screen:OneUser,
         },
         OneCommunity:{
             screen:OneCommunity,
         },
+        // OneUser:{
+        //     screen:OneUser,
+        // },
+        
         
         // Attention:{
         //     screen:Attention,
