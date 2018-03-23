@@ -71,7 +71,7 @@ class Mine extends Component {
                 height={80}
                 width={80}
                 ava={item.ava}
-                onPress={() => navigate('OneCommunity')}
+                onPress={() => navigate('OneUser')}
             />
         );
     }

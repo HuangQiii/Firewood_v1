@@ -5,7 +5,7 @@ import Activity from '../pages/Activity';
 import Mine from '../pages/Mine';
 import OneActivity from '../pages/OneActivity';
 import OneCommunity from '../pages/OneOrg';
-// import OneUser from '../pages/OneUser';
+import OneUser from '../pages/OneUser';
 // import Attention from '../pages/Attention/Attention';
 // import Join from '../pages/Join/Join';
 // import New from '../pages/New/New';
@@ -81,9 +81,9 @@ const App = StackNavigator(
         OneCommunity:{
             screen:OneCommunity,
         },
-        // OneUser:{
-        //     screen:OneUser,
-        // },
+        OneUser:{
+            screen:OneUser,
+        },
         
         
         // Attention:{
