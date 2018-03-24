@@ -6,7 +6,7 @@ import Mine from '../pages/Mine';
 import OneActivity from '../pages/OneActivity';
 import OneCommunity from '../pages/OneOrg';
 import OneUser from '../pages/OneUser';
-// import Attention from '../pages/Attention/Attention';
+import Attention from '../pages/UserAttention';
 // import Join from '../pages/Join/Join';
 // import New from '../pages/New/New';
 import { PALETTA, SIZE } from '../style/Common';
@@ -86,9 +86,9 @@ const App = StackNavigator(
         },
         
         
-        // Attention:{
-        //     screen:Attention,
-        // },
+        Attention:{
+            screen:Attention,
+        },
         // Join:{
         //     screen:Join,
         // },
