@@ -177,19 +177,23 @@ class Home extends Component {
                                     </View>
                                 </View>
                             </TouchableOpacity>
-                            <View style={[styles.mineBlock,styles.myJoin]}>
-                                <View style={styles.mineText}>
-                                    <Text style={{fontSize:18,color:'#fff'}}>我的参与</Text>
-                                    <Text style={{fontSize:12,marginTop:5,color:'#fff'}}>15 个活动</Text>
+                            <TouchableOpacity
+                                onPress={()=>navigate('Join')}
+                            >
+                                <View style={[styles.mineBlock,styles.myJoin]}>
+                                    <View style={styles.mineText}>
+                                        <Text style={{fontSize:18,color:'#fff'}}>我的参与</Text>
+                                        <Text style={{fontSize:12,marginTop:5,color:'#fff'}}>15 个活动</Text>
+                                    </View>
+                                    <View style={styles.mineIcon}>
+                                        <Icon
+                                            name={'md-text'}
+                                            size={50}
+                                            color={'#fff'}
+                                        />
+                                    </View>
                                 </View>
-                                <View style={styles.mineIcon}>
-                                    <Icon
-                                        name={'md-text'}
-                                        size={50}
-                                        color={'#fff'}
-                                    />
-                                </View>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                     </View>
                     <View style={styles.section}>

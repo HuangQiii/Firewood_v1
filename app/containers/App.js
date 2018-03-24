@@ -7,8 +7,8 @@ import OneActivity from '../pages/OneActivity';
 import OneCommunity from '../pages/OneOrg';
 import OneUser from '../pages/OneUser';
 import Attention from '../pages/UserAttention';
-// import Join from '../pages/Join/Join';
-// import New from '../pages/New/New';
+import Join from '../pages/UserJoin';
+import New from '../pages/UserCreate';
 import { PALETTA, SIZE } from '../style/Common';
 
 const TabContainer = TabNavigator(
@@ -89,12 +89,12 @@ const App = StackNavigator(
         Attention:{
             screen:Attention,
         },
-        // Join:{
-        //     screen:Join,
-        // },
-        // New:{
-        //     screen:New,
-        // }
+        Join:{
+            screen:Join,
+        },
+        New:{
+            screen:New,
+        }
     },
     {
         headerMode: 'screen',

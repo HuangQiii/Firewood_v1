@@ -80,18 +80,26 @@ class Mine extends Component {
                                 </View>
                             </View>
                         </TouchableOpacity>
-                        <View style={[styles.mineBlock,styles.myJoin]}>
-                            <View style={styles.mineText}>
-                                <Text style={{fontSize:18,color:'#fff'}}>我的参与</Text>
-                                <Text style={{fontSize:12,marginTop:5,color:'#fff'}}>15 个活动</Text>
+                        <TouchableOpacity
+                            onPress={()=>navigate('Join')}
+                        >
+                            <View style={[styles.mineBlock,styles.myJoin]}>
+                                <View style={styles.mineText}>
+                                    <Text style={{fontSize:18,color:'#fff'}}>我的参与</Text>
+                                    <Text style={{fontSize:12,marginTop:5,color:'#fff'}}>15 个活动</Text>
+                                </View>
                             </View>
-                        </View>
-                        <View style={[styles.mineBlock,styles.myCreate]}>
-                            <View style={styles.mineText}>
-                                <Text style={{fontSize:18,color:'#fff'}}>我的创建</Text>
-                                <Text style={{fontSize:12,marginTop:5,color:'#fff'}}>15 个活动</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={()=>navigate('New')}
+                        >
+                            <View style={[styles.mineBlock,styles.myCreate]}>
+                                <View style={styles.mineText}>
+                                    <Text style={{fontSize:18,color:'#fff'}}>我的创建</Text>
+                                    <Text style={{fontSize:12,marginTop:5,color:'#fff'}}>15 个活动</Text>
+                                </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.list}>
