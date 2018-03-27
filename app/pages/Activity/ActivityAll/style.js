@@ -130,12 +130,19 @@ var styles = StyleSheet.create({
       color:PALETTA.NORMAL_b2,
     },
     trendsToolBlock:{
-      alignItems:'flex-end',
+      flexDirection:'row',
       marginTop:5,
+      justifyContent:'flex-end',
+    },
+    trendToolLi: {
+      flexDirection:'row',
+      marginLeft:15,
+      alignItems:'center',
     },
     trendsTool:{
       fontSize:SIZE.LIGHT_TIP,
       color:PALETTA.NORMAL_666,
+      marginLeft:5,
     },
 });
 

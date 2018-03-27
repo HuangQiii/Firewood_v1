@@ -108,92 +108,94 @@ class Mine extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Image
-                            style={{width:width,height:200,}}
-                            resizeMode = 'cover'
-                            source={require('../../images/back.png')}
-                        />
-                        <View style={styles.headerText}>
-                            <View>
-                                <Text style={styles.activityName}>日常哈啤</Text>
-                                <Text style={styles.activityTip}>腾骧楼422</Text>
-                                <Text style={styles.activityTip}>2018-3-15 21:38:00</Text>
+            <View style={styles.container}>
+                <View style={{flex:1}}>
+                    <ScrollView>
+                        <View style={styles.header}>
+                            <Image
+                                style={{width:width,height:200,}}
+                                resizeMode = 'cover'
+                                source={require('../../images/back.png')}
+                            />
+                            <View style={styles.headerText}>
+                                <View>
+                                    <Text style={styles.activityName}>日常哈啤</Text>
+                                    <Text style={styles.activityTip}>腾骧楼422</Text>
+                                    <Text style={styles.activityTip}>2018-3-15 21:38:00</Text>
+                                </View>
                             </View>
                         </View>
+                        <View style={styles.section}>
+                            <View style={styles.titleBlock}>
+                                <Text style={styles.title}>举办者</Text>
+                            </View>
+                            <View style={[{flexDirection:'row',alignItems:'center'}]}>
+                                <View style={styles.orgHeader}>
+                                    <Image
+                                        resizeMode='stretch'
+                                        style={{ width: 40, height: 40, }}
+                                        source={{uri:'https://avatars1.githubusercontent.com/u/2621619?s=96&v=4'}}
+                                    />
+                                </View>
+                                <Text style={styles.orgName}>光华园</Text>
+                            </View>
+                        </View>
+                        <View style={styles.section}>
+                            <View style={styles.titleBlock}>
+                                <Text style={styles.title}>标签</Text>
+                            </View>
+                            <View style={styles.trendsLabel}>
+                                <View style={styles.trendsLabelWrapper}>
+                                    <Text style={styles.trendsLabelWord}>第二课堂学分</Text>
+                                </View>
+                                <View style={styles.trendsLabelWrapper}>
+                                    <Text style={styles.trendsLabelWord}>奖金</Text>
+                                </View>
+                                <View style={styles.trendsLabelWrapper}>
+                                    <Text style={styles.trendsLabelWord}>证书</Text>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.section}>
+                            <View style={styles.titleBlock}>
+                                <Text style={styles.title}>活动简介</Text>
+                            </View>
+                            <Text>    假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介。</Text>
+                        </View>
+                        <View style={styles.section}>
+                            <View style={styles.titleBlock}>
+                                <Text style={styles.title}>他们已参与</Text>
+                            </View>
+                            <ListView
+                                dataSource={this.state.dataSource}
+                                renderRow={this.renderItem}
+                                horizontal
+                            />
+                        </View>
+                        <View style={styles.section}>
+                            <View style={styles.titleBlock}>
+                                <Text style={styles.title}>评论</Text>
+                                <View style={{flexDirection:'row',alignItems:'center'}}>
+                                    <Icon name="md-create" size={15} />
+                                    <Text style={styles.more}>我要留言</Text>
+                                </View>
+                            </View>
+                            <ListView
+                                dataSource={this.state.dataSourceCommit}
+                                renderRow={this.renderCommit}
+                            />
+                        </View>
+                    </ScrollView>
+                </View>
+                <View style={styles.bottomToolbar}>
+                    <View style={styles.bottomToolbarButton}>
+                        <Text>关注</Text>
                     </View>
-                    <View style={[styles.section,{flexDirection:'row'}]}>
-                        <View style={styles.btnBlock}>
-                            <View style={{paddingHorizontal:10,paddingVertical:5,backgroundColor:'#477aac',borderRadius:4,}}>
-                                <Text style={{fontSize:14,color:'#fff'}}>我要关注</Text>
-                            </View>
-                        </View>
-                        <View style={styles.btnBlock}>
-                            <View style={{paddingHorizontal:10,paddingVertical:5,backgroundColor:'#477aac',borderRadius:4,}}>
-                                <Text style={{fontSize:14,color:'#fff'}}>我要参与</Text>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={styles.section}>
-                        <View style={styles.titleBlock}>
-                            <Text style={styles.title}>举办者</Text>
-                        </View>
-                        <View style={[{flexDirection:'row',alignItems:'center'}]}>
-                            <View style={styles.orgHeader}>
-                                <Image
-                                    resizeMode='stretch'
-                                    style={{ width: 40, height: 40, }}
-                                    source={{uri:'https://avatars1.githubusercontent.com/u/2621619?s=96&v=4'}}
-                                />
-                            </View>
-                            <Text style={styles.orgName}>光华园</Text>
-                        </View>
-                    </View>
-                    <View style={styles.section}>
-                        <View style={styles.titleBlock}>
-                            <Text style={styles.title}>标签</Text>
-                        </View>
-                        <View style={styles.trendsLabel}>
-                            <View style={styles.trendsLabelWrapper}>
-                                <Text style={styles.trendsLabelWord}>第二课堂学分</Text>
-                            </View>
-                            <View style={styles.trendsLabelWrapper}>
-                                <Text style={styles.trendsLabelWord}>奖金</Text>
-                            </View>
-                            <View style={styles.trendsLabelWrapper}>
-                                <Text style={styles.trendsLabelWord}>证书</Text>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={styles.section}>
-                        <View style={styles.titleBlock}>
-                            <Text style={styles.title}>活动简介</Text>
-                        </View>
-                        <Text>    假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介。</Text>
-                    </View>
-                    <View style={styles.section}>
-                        <View style={styles.titleBlock}>
-                            <Text style={styles.title}>他们已参与</Text>
-                        </View>
-                        <ListView
-                            dataSource={this.state.dataSource}
-                            renderRow={this.renderItem}
-                            horizontal
-                        />
-                    </View>
-                    <View style={styles.section}>
-                        <View style={styles.titleBlock}>
-                            <Text style={styles.title}>评论</Text>
-                        </View>
-                        <ListView
-                            dataSource={this.state.dataSourceCommit}
-                            renderRow={this.renderCommit}
-                        />
+                    <View style={styles.bottomToolbarButton}>
+                        <Text>参与</Text>
                     </View>
                 </View>
-            </ScrollView>
+            </View>
         );
     }
 }

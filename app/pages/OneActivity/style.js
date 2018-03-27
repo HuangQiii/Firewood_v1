@@ -49,6 +49,7 @@ var styles = StyleSheet.create({
     more: {
         fontSize:SIZE.LIGHT_TIP,
         color:PALETTA.NORMAL_999,
+        marginLeft:8,
     },
     body: {
         marginTop:15,
@@ -117,7 +118,25 @@ var styles = StyleSheet.create({
         height:40,
         justifyContent:'center',
         alignItems:'center',
-    }
+    },
+    bottomToolbar:{
+        height:50,
+        backgroundColor:'#fff',
+        borderTopWidth:1,
+        borderTopColor:PALETTA.LOGHT_SPLIT,
+        paddingVertical:5,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'flex-end',
+    },
+    bottomToolbarButton:{
+        width:width/2,
+        // justifyContent:'center',
+        alignItems:'center',
+        borderLeftColor:PALETTA.LOGHT_SPLIT,
+        borderLeftWidth:1,
+
+    },
 });
 
 export default styles;

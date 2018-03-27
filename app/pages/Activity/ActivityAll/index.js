@@ -104,9 +104,24 @@ class ActivityAll extends Component {
                                 {item.des}
                             </Text>
                             <View style={styles.trendsToolBlock}>
-                                <Text style={styles.trendsTool}>
-                                    我要参加
-                                </Text>
+                                <View style={styles.trendToolLi}>
+                                    <Icon name="md-eye" size={15} />
+                                    <Text style={styles.trendsTool}>
+                                        88
+                                    </Text>
+                                </View>
+                                {/*<View style={styles.trendToolLi}>
+                                    <Icon name="md-chatboxes" size={15} />
+                                    <Text style={styles.trendsTool}>
+                                        88
+                                    </Text>
+                                </View>*/}
+                                <View style={styles.trendToolLi}>
+                                    <Icon name="md-share" size={15} />
+                                    <Text style={styles.trendsTool}>
+                                        88
+                                    </Text>
+                                </View>
                             </View>
                         </View>
                     </View>

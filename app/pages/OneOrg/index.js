@@ -112,58 +112,68 @@ class Mine extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <View style={{width:80,height:80,borderRadius:40,overflow:'hidden'}}>
-                            <Image
-                                style={{width:80,height:80,}}
-                                resizeMode = 'cover'
-                                source={{uri:'https://avatars2.githubusercontent.com/u/10620750?s=96&v=4'}}
+            <View style={styles.container}>
+                <View style={{flex:1}}>
+                    <ScrollView>
+                        <View style={styles.header}>
+                            <View style={{width:80,height:80,borderRadius:40,overflow:'hidden'}}>
+                                <Image
+                                    style={{width:80,height:80,}}
+                                    resizeMode = 'cover'
+                                    source={{uri:'https://avatars2.githubusercontent.com/u/10620750?s=96&v=4'}}
+                                />
+                            </View>
+                            <View style={styles.headerText}>
+                                <Text style={styles.headerName}>光华园</Text>
+                            </View>
+                        </View>
+                        <View style={[styles.section,{justifyContent:'center',alignItems:'center'}]}>
+                            <View style={{paddingHorizontal:10,paddingVertical:5,backgroundColor:'#477aac',borderRadius:4,}}>
+                                <Text style={{fontSize:14,color:'#fff'}}>给他留言</Text>
+                            </View>
+                        </View>
+                        <View style={styles.section}>
+                            <View style={styles.titleBlock}>
+                                <Text style={styles.title}>标签</Text>
+                            </View>
+                            <View style={styles.trendsLabel}>
+                                <View style={styles.trendsLabelWrapper}>
+                                    <Text style={styles.trendsLabelWord}>唯一学生门户网站</Text>
+                                </View>
+                                <View style={styles.trendsLabelWrapper}>
+                                    <Text style={styles.trendsLabelWord}>最受热爱</Text>
+                                </View>
+                                <View style={styles.trendsLabelWrapper}>
+                                    <Text style={styles.trendsLabelWord}>活跃</Text>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.section}>
+                            <View style={styles.titleBlock}>
+                                <Text style={styles.title}>活动简介</Text>
+                            </View>
+                            <Text>    假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介。</Text>
+                        </View>
+                        <View style={styles.section}>
+                            <View style={styles.titleBlock}>
+                                <Text style={styles.title}>动态</Text>
+                            </View>
+                            <ListView
+                                dataSource={this.state.dataSourceCommit}
+                                renderRow={this.renderCommit}
                             />
                         </View>
-                        <View style={styles.headerText}>
-                            <Text style={styles.headerName}>光华园</Text>
-                        </View>
+                    </ScrollView>
+                </View>
+                <View style={styles.bottomToolbar}>
+                    <View style={styles.bottomToolbarButton}>
+                        <Text>关注</Text>
                     </View>
-                    <View style={[styles.section,{justifyContent:'center',alignItems:'center'}]}>
-                        <View style={{paddingHorizontal:10,paddingVertical:5,backgroundColor:'#477aac',borderRadius:4,}}>
-                            <Text style={{fontSize:14,color:'#fff'}}>我要关注</Text>
-                        </View>
-                    </View>
-                    <View style={styles.section}>
-                        <View style={styles.titleBlock}>
-                            <Text style={styles.title}>标签</Text>
-                        </View>
-                        <View style={styles.trendsLabel}>
-                            <View style={styles.trendsLabelWrapper}>
-                                <Text style={styles.trendsLabelWord}>唯一学生门户网站</Text>
-                            </View>
-                            <View style={styles.trendsLabelWrapper}>
-                                <Text style={styles.trendsLabelWord}>最受热爱</Text>
-                            </View>
-                            <View style={styles.trendsLabelWrapper}>
-                                <Text style={styles.trendsLabelWord}>活跃</Text>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={styles.section}>
-                        <View style={styles.titleBlock}>
-                            <Text style={styles.title}>活动简介</Text>
-                        </View>
-                        <Text>    假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介。</Text>
-                    </View>
-                    <View style={styles.section}>
-                        <View style={styles.titleBlock}>
-                            <Text style={styles.title}>动态</Text>
-                        </View>
-                        <ListView
-                            dataSource={this.state.dataSourceCommit}
-                            renderRow={this.renderCommit}
-                        />
+                    <View style={styles.bottomToolbarButton}>
+                        <Text>申请加入</Text>
                     </View>
                 </View>
-            </ScrollView>
+            </View>
         );
     }
 }
