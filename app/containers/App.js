@@ -9,6 +9,7 @@ import OneUser from '../pages/OneUser';
 import Attention from '../pages/UserAttention';
 import Join from '../pages/UserJoin';
 import New from '../pages/UserCreate';
+import Login from '../pages/Login';
 import { PALETTA, SIZE } from '../style/Common';
 
 const TabContainer = TabNavigator(
@@ -68,7 +69,12 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {   
-       
+        Login:{
+            screen: Login,
+            navigationOptions:{
+                header:null
+            }
+        },
         Main: {
             screen: TabContainer,
             navigationOptions: {
