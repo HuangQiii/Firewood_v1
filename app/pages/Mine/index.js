@@ -31,6 +31,9 @@ class Mine extends Component {
         return (
             <ScrollView>
             <View style={styles.container}>
+                <TouchableOpacity
+                    onPress={()=>navigate('EditMessage')}
+                >
                 <View style={styles.header}>
                     <View style={styles.text}>
                         <View style={{}}>
@@ -52,6 +55,7 @@ class Mine extends Component {
                         />
                     </View>
                 </View>
+                </TouchableOpacity>
                 <TouchableOpacity
                     onPress={()=>this.props.navigation.navigate('OneCommunity')}
                 >

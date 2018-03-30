@@ -10,6 +10,7 @@ import Attention from '../pages/UserAttention';
 import Join from '../pages/UserJoin';
 import New from '../pages/UserCreate';
 import Login from '../pages/Login';
+import EditMessage from '../pages/EditMessage';
 import { PALETTA, SIZE } from '../style/Common';
 
 const TabContainer = TabNavigator(
@@ -68,13 +69,8 @@ const TabContainer = TabNavigator(
 
 
 const App = StackNavigator(
-    {   
-        Login:{
-            screen: Login,
-            navigationOptions:{
-                header:null
-            }
-        },
+    {      
+        
         Main: {
             screen: TabContainer,
             navigationOptions: {
@@ -91,6 +87,15 @@ const App = StackNavigator(
             screen:OneUser,
         },
         
+        EditMessage:{
+            screen: EditMessage,
+        },
+        Login:{
+            screen: Login,
+            navigationOptions:{
+                header:null
+            }
+        },
         
         Attention:{
             screen:Attention,

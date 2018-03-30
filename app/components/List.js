@@ -9,6 +9,7 @@ const propTypes = {
     leftIconColor: PropTypes.string,
     rightIconColor:PropTypes.string,
     text: PropTypes.string,
+    content: PropTypes.string,
     textSize: PropTypes.number,
     textColor: PropTypes.string,
     rightIconName: PropTypes.string,
@@ -25,7 +26,7 @@ const propTypes = {
 };
 
 const List = ({
-  leftIconName, iconSize, rightIconColor, leftIconColor, text, textSize, textColor, rightIconName, borderBottom, listHeight, overlayMarginTop, bgColor, hightLight, activeOpacity, underlayColor, onPress, disable, downloading
+  leftIconName, iconSize, rightIconColor, leftIconColor, text, content, textSize, textColor, rightIconName, borderBottom, listHeight, overlayMarginTop, bgColor, hightLight, activeOpacity, underlayColor, onPress, disable, downloading
 }) => (
         <View>
             {
@@ -75,8 +76,12 @@ const List = ({
                         }
 
                         <View style={style.listContent}>
-                            <View>
+                            <View style={{flexDirection:'row',flex:1,justifyContent:'space-between'}}>
                                 <Text style={{ fontSize: textSize, color: textColor }}>{text}</Text>
+                                {
+                                    content != '' &&
+                                    <Text style={{fontSize:12,color:'#888'}}>{content}</Text>
+                                }
                             </View>
                             <View style={{ alignItems: 'center', width: 23, flexDirection: 'row' }}>
                                 {
@@ -107,6 +112,7 @@ List.defaultProps = {
     rightIconColor: '#b2b2b2',
     textSize: 14,
     textColor: '#333',
+    content:'',
     leftIconName: '',
     rightIconName: '',
     borderBottom:true,
@@ -134,7 +140,7 @@ var style = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 });
 
