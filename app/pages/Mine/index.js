@@ -57,7 +57,7 @@ class Mine extends Component {
                 </View>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={()=>this.props.navigation.navigate('OneCommunity')}
+                    onPress={()=>this.props.navigation.navigate('OrgManager')}
                 >
                     <View style={styles.org}>
                         <View style={styles.orgIcon}>

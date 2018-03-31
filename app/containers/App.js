@@ -11,6 +11,8 @@ import Join from '../pages/UserJoin';
 import New from '../pages/UserCreate';
 import Login from '../pages/Login';
 import EditMessage from '../pages/EditMessage';
+import OrgManager from '../pages/OrgManager';
+import NewActivity from '../pages/NewActivity';
 import { PALETTA, SIZE } from '../style/Common';
 
 const TabContainer = TabNavigator(
@@ -96,7 +98,12 @@ const App = StackNavigator(
                 header:null
             }
         },
-        
+        NewActivity:{
+            screen:NewActivity,
+        },
+        OrgManager: {
+            screen: OrgManager,
+        },
         Attention:{
             screen:Attention,
         },
