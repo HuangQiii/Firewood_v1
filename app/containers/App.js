@@ -13,6 +13,7 @@ import Login from '../pages/Login';
 import EditMessage from '../pages/EditMessage';
 import OrgManager from '../pages/OrgManager';
 import NewActivity from '../pages/NewActivity';
+import Information from '../pages/Information';
 import { PALETTA, SIZE } from '../style/Common';
 
 const TabContainer = TabNavigator(
@@ -103,6 +104,9 @@ const App = StackNavigator(
         },
         OrgManager: {
             screen: OrgManager,
+        },
+        Information: {
+            screen: Information,
         },
         Attention:{
             screen:Attention,
