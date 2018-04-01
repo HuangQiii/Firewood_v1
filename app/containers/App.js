@@ -14,6 +14,7 @@ import EditMessage from '../pages/EditMessage';
 import OrgManager from '../pages/OrgManager';
 import NewActivity from '../pages/NewActivity';
 import Information from '../pages/Information';
+import Circle from '../pages/Circle';
 import { PALETTA, SIZE } from '../style/Common';
 
 const TabContainer = TabNavigator(
@@ -116,7 +117,10 @@ const App = StackNavigator(
         },
         New:{
             screen:New,
-        }
+        },
+        Circle: {
+            screen: Circle,
+        },
     },
     {
         headerMode: 'screen',

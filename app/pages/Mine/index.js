@@ -122,6 +122,7 @@ class Mine extends Component {
                         listHeight={55}
                         rightIconName={'ios-arrow-forward'}
                         borderBottom={false}
+                        onPress={()=>navigate('Circle')}
                     />
                 </View>
                 <View style={styles.list}>
