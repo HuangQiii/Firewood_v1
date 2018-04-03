@@ -15,6 +15,7 @@ import OrgManager from '../pages/OrgManager';
 import NewActivity from '../pages/NewActivity';
 import Information from '../pages/Information';
 import Circle from '../pages/Circle';
+
 import { PALETTA, SIZE } from '../style/Common';
 
 const TabContainer = TabNavigator(
@@ -73,35 +74,35 @@ const TabContainer = TabNavigator(
 
 
 const App = StackNavigator(
-    {      
-        
+    {
+
         Main: {
             screen: TabContainer,
             navigationOptions: {
                 header: null
             }
         },
-        OneActivity:{
-            screen:OneActivity,
+        OneActivity: {
+            screen: OneActivity,
         },
-        OneCommunity:{
-            screen:OneCommunity,
+        OneCommunity: {
+            screen: OneCommunity,
         },
-        OneUser:{
-            screen:OneUser,
+        OneUser: {
+            screen: OneUser,
         },
-        
-        EditMessage:{
+
+        EditMessage: {
             screen: EditMessage,
         },
-        Login:{
+        Login: {
             screen: Login,
-            navigationOptions:{
-                header:null
+            navigationOptions: {
+                header: null
             }
         },
-        NewActivity:{
-            screen:NewActivity,
+        NewActivity: {
+            screen: NewActivity,
         },
         OrgManager: {
             screen: OrgManager,
@@ -109,14 +110,14 @@ const App = StackNavigator(
         Information: {
             screen: Information,
         },
-        Attention:{
-            screen:Attention,
+        Attention: {
+            screen: Attention,
         },
-        Join:{
-            screen:Join,
+        Join: {
+            screen: Join,
         },
-        New:{
-            screen:New,
+        New: {
+            screen: New,
         },
         Circle: {
             screen: Circle,

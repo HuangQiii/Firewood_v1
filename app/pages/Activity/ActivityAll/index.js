@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
+import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
@@ -28,12 +28,11 @@ const DATA = [
     },
 ];
 class ActivityAll extends Component {
-
     constructor(props){
         super(props);
         this.state={
             dataSource:new ListView.DataSource({
-                rowHasChanged:(row1,row2)=>row1!==row2,
+                rowHasChanged:(row1,row2) => row1!==row2,
             })
         }
     }
@@ -110,12 +109,6 @@ class ActivityAll extends Component {
                                         88
                                     </Text>
                                 </View>
-                                {/*<View style={styles.trendToolLi}>
-                                    <Icon name="md-chatboxes" size={15} />
-                                    <Text style={styles.trendsTool}>
-                                        88
-                                    </Text>
-                                </View>*/}
                                 <View style={styles.trendToolLi}>
                                     <Icon name="md-share" size={15} />
                                     <Text style={styles.trendsTool}>
@@ -144,9 +137,7 @@ class ActivityAll extends Component {
 
 export default connect(
     (state) => ({
-        
     }),
     (dispatch) => ({
-        
     })
 )(ActivityAll)

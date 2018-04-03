@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
+import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import List from '../../components/List';
@@ -31,7 +31,7 @@ const DATA = [
     },
 ];
 
-class Mine extends Component {
+class OneOrg extends Component {
 
     static navigationOptions = ({ navigation }) => ({
         tabBarIcon: ({ tintColor }) => (
@@ -58,11 +58,6 @@ class Mine extends Component {
         return (
             <View style={styles.trends}>
                     <View style={styles.trendsHead}>
-                        {/*<Image
-                            resizeMode='stretch'
-                            style={{ width: 40, height: 40, }}
-                            source={{uri:item.ava}}
-                        />*/}
                         <Text style={{fontSize:32}}>22</Text>
                         <Text>3月</Text>
                     </View>
@@ -183,4 +178,4 @@ export default connect(
     }),
     (dispatch) => ({
     })
-)(Mine)
+)(OneOrg)

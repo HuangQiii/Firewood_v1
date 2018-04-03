@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
+import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import List from '../../components/List';
@@ -9,33 +9,33 @@ import IconBlock from '../../components/IconBlock';
 const { width, height } = Dimensions.get('window');
 const DATA = [
     {
-        id:1,
-        name:'司徒光',
-        ava:'https://avatars3.githubusercontent.com/u/7374042?s=96&v=4',
+        id: 1,
+        name: '司徒光',
+        ava: 'https://avatars3.githubusercontent.com/u/7374042?s=96&v=4',
     },
     {
-        id:2,
-        name:'上官静',
-        ava:'https://avatars0.githubusercontent.com/u/14359427?s=96&v=4',
+        id: 2,
+        name: '上官静',
+        ava: 'https://avatars0.githubusercontent.com/u/14359427?s=96&v=4',
     },
 ];
 const DATA_COMMIT = [
     {
-        id:1,
-        name:'公孙离',
-        des:'我也不知道说什么了',
-        ava:'https://avatars0.githubusercontent.com/u/124156?s=96&v=4',
-        time:'2018-3-15 23:32:12',
+        id: 1,
+        name: '公孙离',
+        des: '我也不知道说什么了',
+        ava: 'https://avatars0.githubusercontent.com/u/124156?s=96&v=4',
+        time: '2018-3-15 23:32:12',
     },
     {
-        id:2,
-        name:'青岩井',
-        des:'我也不知道说什么了',
-        ava:'https://avatars1.githubusercontent.com/u/3919206?s=96&v=4',
-        time:'2018-3-15 23:32:12',
+        id: 2,
+        name: '青岩井',
+        des: '我也不知道说什么了',
+        ava: 'https://avatars1.githubusercontent.com/u/3919206?s=96&v=4',
+        time: '2018-3-15 23:32:12',
     }
 ]
-class Mine extends Component {
+class OneActivity extends Component {
 
     static navigationOptions = ({ navigation }) => ({
         tabBarIcon: ({ tintColor }) => (
@@ -43,22 +43,22 @@ class Mine extends Component {
         ),
     });
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            dataSource:new ListView.DataSource({
-                rowHasChanged:(row1,row2)=>row1!==row2,
+        this.state = {
+            dataSource: new ListView.DataSource({
+                rowHasChanged: (row1, row2) => row1 !== row2,
             }),
-            dataSourceCommit:new ListView.DataSource({
-                rowHasChanged:(row1,row2)=>row1!==row2,
+            dataSourceCommit: new ListView.DataSource({
+                rowHasChanged: (row1, row2) => row1 !== row2,
             }),
         }
     }
 
     componentDidMount() {
         this.setState({
-            dataSource:this.state.dataSource.cloneWithRows(DATA),
-            dataSourceCommit:this.state.dataSourceCommit.cloneWithRows(DATA_COMMIT),
+            dataSource: this.state.dataSource.cloneWithRows(DATA),
+            dataSourceCommit: this.state.dataSourceCommit.cloneWithRows(DATA_COMMIT),
         });
     }
 
@@ -83,7 +83,7 @@ class Mine extends Component {
                     <Image
                         resizeMode='stretch'
                         style={{ width: 40, height: 40, }}
-                        source={{uri:item.ava}}
+                        source={{ uri: item.ava }}
                     />
                 </View>
                 <View style={styles.commitMessage}>
@@ -109,12 +109,12 @@ class Mine extends Component {
         const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
-                <View style={{flex:1}}>
+                <View style={{ flex: 1 }}>
                     <ScrollView>
                         <View style={styles.header}>
                             <Image
-                                style={{width:width,height:200,}}
-                                resizeMode = 'cover'
+                                style={{ width: width, height: 200, }}
+                                resizeMode='cover'
                                 source={require('../../images/back.png')}
                             />
                             <View style={styles.headerText}>
@@ -129,12 +129,12 @@ class Mine extends Component {
                             <View style={styles.titleBlock}>
                                 <Text style={styles.title}>举办者</Text>
                             </View>
-                            <View style={[{flexDirection:'row',alignItems:'center'}]}>
+                            <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
                                 <View style={styles.orgHeader}>
                                     <Image
                                         resizeMode='stretch'
                                         style={{ width: 40, height: 40, }}
-                                        source={{uri:'https://avatars1.githubusercontent.com/u/2621619?s=96&v=4'}}
+                                        source={{ uri: 'https://avatars1.githubusercontent.com/u/2621619?s=96&v=4' }}
                                     />
                                 </View>
                                 <Text style={styles.orgName}>光华园</Text>
@@ -175,7 +175,7 @@ class Mine extends Component {
                         <View style={styles.section}>
                             <View style={styles.titleBlock}>
                                 <Text style={styles.title}>评论</Text>
-                                <View style={{flexDirection:'row',alignItems:'center'}}>
+                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                     <Icon name="md-create" size={15} />
                                     <Text style={styles.more}>我要留言</Text>
                                 </View>
@@ -205,4 +205,4 @@ export default connect(
     }),
     (dispatch) => ({
     })
-)(Mine)
+)(OneActivity)

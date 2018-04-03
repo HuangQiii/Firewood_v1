@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
+import { ScrollView, View, Dimensions, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
 import ScrollableTabView, {ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import ActivityAll from './ActivityAll';
 
-let CONNECT_BOOL;
 const { width, height } = Dimensions.get('window');
 const DATA = [
     {
@@ -32,7 +31,6 @@ const DATA = [
     }
 ];
 class Activity extends Component {
-
     static navigationOptions = ({ navigation }) => ({
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-pricetag" size={30} color={tintColor} />

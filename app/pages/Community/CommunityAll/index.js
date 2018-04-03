@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
+import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
 import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import IconBlock from '../../../components/IconBlock';
 
-let CONNECT_BOOL;
 const { width, height } = Dimensions.get('window');
 const DATA = [
     {
@@ -29,12 +28,11 @@ const DATA = [
     }
 ];
 class CommunityAll extends Component {
-
     constructor(props){
         super(props);
         this.state={
             dataSource:new ListView.DataSource({
-                rowHasChanged:(row1,row2)=>row1!==row2,
+                rowHasChanged:(row1,row2) => row1!==row2,
             })
         }
     }
@@ -94,9 +92,7 @@ class CommunityAll extends Component {
 
 export default connect(
     (state) => ({
-        
     }),
     (dispatch) => ({
-        
     })
 )(CommunityAll)

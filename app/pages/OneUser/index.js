@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
+import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import List from '../../components/List';
@@ -42,8 +42,7 @@ const DATA = [
     },
 ];
 
-class Mine extends Component {
-
+class OneUser extends Component {
     static navigationOptions = ({ navigation }) => ({
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-person" size={30} color={tintColor} />
@@ -215,4 +214,4 @@ export default connect(
     }),
     (dispatch) => ({
     })
-)(Mine)
+)(OneUser)
