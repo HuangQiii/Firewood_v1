@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Dimensions, Text, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Dimensions, Text, TouchableOpacity,DeviceEventEmitter } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
@@ -43,18 +43,34 @@ class Activity extends Component {
         }
     }
 
+    componentWillMount() {
+        DeviceEventEmitter.addListener(
+            'change',
+            (num) => { this.changeTo(num); }
+        );
+    }
+
     componentDidMount() {
     }
 
+    changeTo(num) {
+        // const { navigate, state } = this.props.navigation;
+        // const type = state.params && state.params.type || 0;
+        setTimeout(() => this.scrollableTabView.goToPage(num), 0);
+    }
+
     render() {
-        const { navigate } = this.props.navigation;
+        const { navigate,state } = this.props.navigation;
+        const type = state.params && state.params.type || 0;
+        console.log(type);
         return (
             <View style={styles.container}>
                 <ScrollableTabView
+                    ref={(ref) => { this.scrollableTabView = ref; }}
                     initialPage={0}
                     renderTabBar={() => (
                         <ScrollableTabBar
-                            tabStyle={{paddingBottom: 0,borderBottom:0,}}
+                            tabStyle={{paddingBottom: 0,borderBottomWidth:0,}}
                             textStyle={{fontSize: 12}}
                         />
                     )}
@@ -64,19 +80,13 @@ class Activity extends Component {
                     tabBarInactiveTextColor="#999"
                     >
                     <View tabLabel='猜你喜欢'>
-                        <ActivityAll
-                            navigation={this.props.navigation}
-                        />
+                        <View><Text>like</Text></View>
                     </View>
                     <View tabLabel='最热活动'>
-                        <ActivityAll
-                            navigation={this.props.navigation}
-                        />
+                        <View><Text>hot</Text></View>
                     </View>
                     <View tabLabel='最新活动'>
-                        <ActivityAll
-                            navigation={this.props.navigation}
-                        />
+                        <View><Text>new</Text></View>
                     </View>
                     <View tabLabel='全部活动'>
                         <ActivityAll 

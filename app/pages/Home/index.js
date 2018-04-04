@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView } from 'react-native';
+import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView,DeviceEventEmitter } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
@@ -81,6 +81,18 @@ class Home extends Component {
         this.getListViewData();
     }
 
+    getCurrentDate() {
+        const DAY_ARRAY = ['日', '一', '二', '三', '四', '五', '六'];
+        let now = new Date();
+        let [currentMonth, currentDate, currentDay] = [now.getMonth() + 1, now.getDate(), now.getDay()];
+        return `${currentMonth}月${currentDate}日 , 星期${DAY_ARRAY[currentDay]}`;
+    }
+
+    changeTo(num) {
+        DeviceEventEmitter.emit('change', num);
+        this.props.navigation.navigate('Activity', { type: num });
+    }
+
     getListViewData() {
         this.setState({
             dataSourceNew: this.state.dataSourceNew.cloneWithRows(DATA_NEWEST),
@@ -129,7 +141,7 @@ class Home extends Component {
                     <View style={styles.header}>
                         <View style={styles.headerTitle}>
                             <Text style={styles.headerTime}>
-                                3月11日,星期日
+                                {this.getCurrentDate()}
                             </Text>
                             <Text style={styles.headerLogo}>
                                 柴火
@@ -199,35 +211,49 @@ class Home extends Component {
                         <View style={styles.titleBlock}>
                             <Text style={styles.title}>最新活动</Text>
                             <TouchableOpacity
-                                onPress={() => navigate('Activity')}
+                                onPress={() => {
+                                    // navigate('Activity', { type: 2 });
+                                    this.changeTo(2);
+                                }}
                             >
                                 <Text style={styles.more}>全部</Text>
                             </TouchableOpacity>
                         </View>
-                        <View>
-                            <ListView
-                                dataSource={this.state.dataSourceNew}
-                                renderRow={this.renderItem}
-                                horizontal
-                            />
-                        </View>
+                        {
+                            this.state.dataSourceNew.length === 0 ?
+                                <View></View>
+                                :
+                                <View>
+                                    <ListView
+                                        dataSource={this.state.dataSourceNew}
+                                        renderRow={this.renderItem}
+                                        horizontal
+                                    />
+                                </View>
+                        }
+
                     </View>
                     <View style={styles.section}>
                         <View style={styles.titleBlock}>
                             <Text style={styles.title}>最热活动</Text>
                             <TouchableOpacity
-                                onPress={() => navigate('Activity')}
+                                onPress={() => {this.changeTo(1)}}
                             >
                                 <Text style={styles.more}>全部</Text>
                             </TouchableOpacity>
                         </View>
-                        <View>
-                            <ListView
-                                dataSource={this.state.dataSourcePopular}
-                                renderRow={this.renderItem}
-                                horizontal
-                            />
-                        </View>
+                        {
+                            this.state.dataSourcePopular.length === 0 ?
+                                <View />
+                                :
+                                <View>
+                                    <ListView
+                                        dataSource={this.state.dataSourcePopular}
+                                        renderRow={this.renderItem}
+                                        horizontal
+                                    />
+                                </View>
+                        }
                     </View>
                 </View>
             </ScrollView>
