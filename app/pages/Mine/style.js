@@ -46,6 +46,13 @@ var styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         marginRight:20,
+        height:40,
+    },
+    orgList: {
+        flexDirection:'row',
+        flex:1,
+        height:40,
+        justifyContent:'space-between',
     },
     orgTitle:{
         fontSize:SIZE.LIGHT_TIP,
@@ -54,6 +61,10 @@ var styles = StyleSheet.create({
     orgContent:{
         fontSize:SIZE.NORMAL_CONTENT,
         color:PALETTA.VITAL_TITLE,
+    },
+    orgSetting:{
+        justifyContent:'center',
+        alignItems:'center',
     },
     section:{
         paddingHorizontal:20,
@@ -80,7 +91,7 @@ var styles = StyleSheet.create({
         justifyContent:'space-between',
     },
     mineBlock:{
-        width:(width-60)/3,
+        width:(width-60)/2,
         // height:100,
         borderRadius:4,
         padding:10,
