@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Dimensions, Text } from 'react-native';
+import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import CommunityAll from './CommunityAll';
 import CommunityAttention from './CommunityAttention';
-
-const { width, height } = Dimensions.get('window');
 
 class Community extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -18,11 +16,6 @@ class Community extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-        }
-    }
-
-    componentDidMount() {
     }
 
     render() {
@@ -32,7 +25,7 @@ class Community extends Component {
                     initialPage={0}
                     renderTabBar={() => (
                         <ScrollableTabBar
-                            tabStyle={{ paddingBottom: 0, flex: 1, borderBottom: 0, }}
+                            tabStyle={{ paddingBottom: 0, borderBottomWidth: 0, }}
                             textStyle={{ fontSize: 12 }}
                         />
                     )}

@@ -40,6 +40,11 @@ const DATA_COMMUNITY = [
         org: '党宣',
         ava: 'https://avatars3.githubusercontent.com/u/5959286?s=96&v=4',
     },
+    {
+        id: -1,
+        org:'',
+        ava:''
+    }
 ];
 class CommunityAttention extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -62,7 +67,7 @@ class CommunityAttention extends Component {
 
     componentDidMount() {
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(DATA),
+            dataSource: this.state.dataSource.cloneWithRows(DATA.slice(0,5)),
             dataSourceCommunity: this.state.dataSourceCommunity.cloneWithRows(DATA_COMMUNITY),
         });
     }
@@ -111,9 +116,18 @@ class CommunityAttention extends Component {
                         </View>
                     </TouchableOpacity>
                     <View style={styles.trendsToolBlock}>
-                        <Text style={styles.trendsTool}>
-                            点赞
-                        </Text>
+                        <View style={styles.trendToolLi}>
+                            <Icon name="md-text" size={15} />
+                            <Text style={styles.trendsTool}>
+                                0
+                            </Text>
+                        </View>
+                        <View style={styles.trendToolLi}>
+                            <Icon name="md-thumbs-up" size={15} />
+                            <Text style={styles.trendsTool}>
+                                0
+                            </Text>
+                        </View>
                     </View>
                 </View>
             </View>
@@ -122,12 +136,14 @@ class CommunityAttention extends Component {
 
     renderCommunity = (item) => {
         const { navigate } = this.props.navigation;
+        let icon = item.id === -1 ? 'ios-more' : '';
         return (
             <IconBlock
                 content={item.org}
                 contentSize={14}
                 height={80}
                 width={80}
+                icon={icon}
                 ava={item.ava}
                 onPress={() => navigate('OneCommunity')}
             />
