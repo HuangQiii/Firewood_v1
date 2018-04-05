@@ -3,7 +3,6 @@ import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView }
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
-import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import IconBlock from '../../../components/IconBlock';
 
 const { width, height } = Dimensions.get('window');
@@ -145,7 +144,13 @@ class CommunityAttention extends Component {
                 width={80}
                 icon={icon}
                 ava={item.ava}
-                onPress={() => navigate('OneCommunity')}
+                onPress={() => {
+                    if(item.id === -1){
+                        navigate('Attention')
+                    }else{
+                        navigate('OneCommunity')
+                    }
+                }}
             />
         );
     }
