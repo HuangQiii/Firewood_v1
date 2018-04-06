@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
-import List from '../../components/List';
 import styles from './style';
 import IconBlock from '../../components/IconBlock';
 
@@ -18,6 +17,11 @@ const DATA = [
         name: '上官静',
         ava: 'https://avatars0.githubusercontent.com/u/14359427?s=96&v=4',
     },
+    {
+        id: -1,
+        org:'',
+        ava:''
+    }
 ];
 const DATA_COMMIT = [
     {
@@ -35,6 +39,7 @@ const DATA_COMMIT = [
         time: '2018-3-15 23:32:12',
     }
 ]
+
 class OneActivity extends Component {
 
     static navigationOptions = ({ navigation }) => ({
@@ -57,19 +62,21 @@ class OneActivity extends Component {
 
     componentDidMount() {
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(DATA),
+            dataSource: this.state.dataSource.cloneWithRows(DATA.slice(0,5)),
             dataSourceCommit: this.state.dataSourceCommit.cloneWithRows(DATA_COMMIT),
         });
     }
 
     renderItem = (item) => {
         const { navigate } = this.props.navigation;
+        let icon = item.id === -1 ? 'ios-more' : '';
         return (
             <IconBlock
                 content={item.name}
                 contentSize={14}
                 height={80}
                 width={80}
+                icon={icon}
                 ava={item.ava}
                 onPress={() => navigate('OneUser')}
             />
@@ -79,13 +86,17 @@ class OneActivity extends Component {
     renderCommit = (item) => {
         return (
             <View style={styles.commit}>
-                <View style={styles.commitHeader}>
-                    <Image
-                        resizeMode='stretch'
-                        style={{ width: 40, height: 40, }}
-                        source={{ uri: item.ava }}
-                    />
-                </View>
+                <TouchableOpacity
+                    onPress={() => navigate('OneUser')}
+                >
+                    <View style={styles.commitHeader}>
+                        <Image
+                            resizeMode='stretch'
+                            style={{ width: 40, height: 40, }}
+                            source={{ uri: item.ava }}
+                        />
+                    </View>
+                </TouchableOpacity>
                 <View style={styles.commitMessage}>
                     <View>
                         <Text style={styles.commitName}>
