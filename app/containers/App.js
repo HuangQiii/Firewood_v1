@@ -3,18 +3,22 @@ import Home from '../pages/Home';
 import Community from '../pages/Community';
 import Activity from '../pages/Activity';
 import Mine from '../pages/Mine';
+
 import OneActivity from '../pages/OneActivity';
 import OneCommunity from '../pages/OneOrg';
 import OneUser from '../pages/OneUser';
+
 import Attention from '../pages/UserAttention';
 import Join from '../pages/UserJoin';
-import New from '../pages/UserCreate';
+// import New from '../pages/UserCreate';
+
 import Login from '../pages/Login';
 import EditMessage from '../pages/EditMessage';
 import OrgManager from '../pages/OrgManager';
 import NewActivity from '../pages/NewActivity';
 import Information from '../pages/Information';
 import Circle from '../pages/Circle';
+import Write from '../pages/Write';
 
 import { PALETTA, SIZE } from '../style/Common';
 
@@ -116,12 +120,15 @@ const App = StackNavigator(
         Join: {
             screen: Join,
         },
-        New: {
-            screen: New,
-        },
+        // New: {
+        //     screen: New,
+        // },
         Circle: {
             screen: Circle,
         },
+        Write: {
+            screen: Write,
+        }
     },
     {
         headerMode: 'screen',

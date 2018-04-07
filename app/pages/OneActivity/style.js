@@ -137,6 +137,16 @@ var styles = StyleSheet.create({
         borderLeftWidth:1,
 
     },
+    trendToolLi: {
+      flexDirection:'row',
+      marginLeft:15,
+      alignItems:'center',
+    },
+    trendsTool:{
+      fontSize:SIZE.LIGHT_TIP,
+      color:PALETTA.NORMAL_666,
+      marginLeft:5,
+    },
 });
 
 export default styles;

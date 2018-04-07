@@ -19,8 +19,8 @@ const DATA = [
     },
     {
         id: -1,
-        org:'',
-        ava:''
+        org: '',
+        ava: ''
     }
 ];
 const DATA_COMMIT = [
@@ -62,7 +62,7 @@ class OneActivity extends Component {
 
     componentDidMount() {
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(DATA.slice(0,5)),
+            dataSource: this.state.dataSource.cloneWithRows(DATA.slice(0, 5)),
             dataSourceCommit: this.state.dataSourceCommit.cloneWithRows(DATA_COMMIT),
         });
     }
@@ -84,6 +84,7 @@ class OneActivity extends Component {
     }
 
     renderCommit = (item) => {
+        const { navigate } = this.props.navigation;
         return (
             <View style={styles.commit}>
                 <TouchableOpacity
@@ -106,10 +107,16 @@ class OneActivity extends Component {
                             {item.des}
                         </Text>
                     </View>
-                    <View style={{}}>
+                    <View style={{flexDirection:'row',justifyContent:'space-between'}}>
                         <Text style={styles.commitTime}>
                             {item.time}
                         </Text>
+                        <View style={styles.trendToolLi}>
+                            <Icon name="md-thumbs-up" size={15} />
+                            <Text style={styles.trendsTool}>
+                                0
+                            </Text>
+                        </View>
                     </View>
                 </View>
             </View>
@@ -130,7 +137,7 @@ class OneActivity extends Component {
                             />
                             <View style={styles.headerText}>
                                 <View>
-                                    <Text style={styles.activityName}>日常哈啤</Text>
+                                    <Text style={styles.activityName}>ES modules</Text>
                                     <Text style={styles.activityTip}>腾骧楼422</Text>
                                     <Text style={styles.activityTip}>2018-3-15 21:38:00</Text>
                                 </View>
@@ -140,16 +147,20 @@ class OneActivity extends Component {
                             <View style={styles.titleBlock}>
                                 <Text style={styles.title}>举办者</Text>
                             </View>
-                            <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
-                                <View style={styles.orgHeader}>
-                                    <Image
-                                        resizeMode='stretch'
-                                        style={{ width: 40, height: 40, }}
-                                        source={{ uri: 'https://avatars1.githubusercontent.com/u/2621619?s=96&v=4' }}
-                                    />
+                            <TouchableOpacity
+                                onPress={() => navigate('OneCommunity')}
+                            >
+                                <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
+                                    <View style={styles.orgHeader}>
+                                        <Image
+                                            resizeMode='stretch'
+                                            style={{ width: 40, height: 40, }}
+                                            source={{ uri: 'https://avatars1.githubusercontent.com/u/2621619?s=96&v=4' }}
+                                        />
+                                    </View>
+                                    <Text style={styles.orgName}>光华园</Text>
                                 </View>
-                                <Text style={styles.orgName}>光华园</Text>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                         <View style={styles.section}>
                             <View style={styles.titleBlock}>
@@ -171,7 +182,9 @@ class OneActivity extends Component {
                             <View style={styles.titleBlock}>
                                 <Text style={styles.title}>活动简介</Text>
                             </View>
-                            <Text>    假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介，假装我是简介。</Text>
+                            <Text>    ES modules bring an official, standardized module system to JavaScript. It took a while to get here, though — nearly 10 years of standardization work.
+But the wait is almost over. With the release of Firefox 60 in May (currently in beta), all major browsers will support ES modules, and the Node modules working group is currently working on adding ES module support to Node.js. And ES module integration for WebAssembly is underway as well.
+Many JavaScript developers know that ES modules have been controversial. But few actually understand how ES modules work.Let’s take a look at what problem ES modules solve and how they are different from modules in other module systems.</Text>
                         </View>
                         <View style={styles.section}>
                             <View style={styles.titleBlock}>
@@ -186,10 +199,14 @@ class OneActivity extends Component {
                         <View style={styles.section}>
                             <View style={styles.titleBlock}>
                                 <Text style={styles.title}>评论</Text>
-                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                    <Icon name="md-create" size={15} />
-                                    <Text style={styles.more}>我要留言</Text>
-                                </View>
+                                <TouchableOpacity
+                                    onPress={() => navigate('Write')}
+                                >
+                                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                        <Icon name="md-create" size={15} />
+                                        <Text style={styles.more}>我要留言</Text>
+                                    </View>
+                                </TouchableOpacity>
                             </View>
                             <ListView
                                 dataSource={this.state.dataSourceCommit}
