@@ -22,15 +22,6 @@ var styles = StyleSheet.create({
         fontSize: 24,
         color: PALETTA.VITAL_TITLE,
     },
-    activityName: {
-        fontSize: 24,
-        color: '#fff',
-        marginBottom: 10,
-    },
-    activityTip: {
-        fontSize: SIZE.LIGHT_TIP,
-        color: '#fff',
-    },
     section: {
         paddingHorizontal: 20,
         paddingVertical: 15,
@@ -43,24 +34,6 @@ var styles = StyleSheet.create({
     },
     title: {
         fontSize: SIZE.VITAL_NAV_TITLE,
-        color: PALETTA.VITAL_TITLE,
-    },
-    more: {
-        fontSize: SIZE.LIGHT_TIP,
-        color: PALETTA.NORMAL_999,
-    },
-    body: {
-        marginTop: 15,
-    },
-    orgHeader: {
-        width: 40,
-        height: 40,
-        marginRight: 20,
-        borderRadius: 20,
-        overflow: 'hidden',
-    },
-    orgName: {
-        fontSize: SIZE.NORMAL_CONTENT,
         color: PALETTA.VITAL_TITLE,
     },
     trendsLabel: {
@@ -81,51 +54,12 @@ var styles = StyleSheet.create({
         fontSize: SIZE.LIGHT_TIP,
         color: PALETTA.VITAL_TITLE,
     },
-
-    commit: {
-        padding: 10,
-        marginBottom: 10,
-        flexDirection: 'row',
-        height: 80,
-    },
-    commitHeader: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
-        overflow: 'hidden',
-    },
-    commitMessage: {
-        flex: 1,
-        paddingLeft: 10,
-        justifyContent: 'space-between',
-    },
-    commitName: {
-        fontSize: SIZE.NORMAL_TITLE,
-        color: PALETTA.VITAL_LINK,
-    },
-    commitWord: {
-        fontSize: SIZE.NORMAL_CONTENT,
-        color: PALETTA.VITAL_TITLE,
-    },
-    commitTime: {
-        fontSize: SIZE.LIGHT_TIME,
-        color: PALETTA.NORMAL_b2,
-    },
-    btnBlock: {
-        flex: 1,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     trends: {
         paddingVertical: 15,
         flexDirection: 'row',
     },
     trendsHead: {
         width: 60,
-        //   height:40,
-        //   borderRadius:20,
-        //   overflow:'hidden',
         flexDirection: 'row',
     },
     trendsRight: {
@@ -181,7 +115,6 @@ var styles = StyleSheet.create({
     },
     bottomToolbarButton: {
         width: width / 2,
-        // justifyContent:'center',
         alignItems: 'center',
         borderLeftColor: PALETTA.LOGHT_SPLIT,
         borderLeftWidth: 1,

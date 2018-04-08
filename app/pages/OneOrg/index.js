@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableOpacity, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
-import List from '../../components/List';
 import styles from './style';
-import IconBlock from '../../components/IconBlock';
-
-const { width, height } = Dimensions.get('window');
 
 const DATA = [
     {
