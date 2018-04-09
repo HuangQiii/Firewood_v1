@@ -8,19 +8,9 @@ var styles = StyleSheet.create({
         paddingHorizontal:20,
         paddingVertical:15,
     },
-    titleBlock:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        alignItems:'center',
-        marginBottom:15,
-    },
     title: {
         fontSize:SIZE.VITAL_NAV_TITLE,
         color:PALETTA.VITAL_TITLE,
-    },
-    more: {
-        fontSize:SIZE.LIGHT_TIP,
-        color:PALETTA.NORMAL_999,
     },
     trends: {
       paddingVertical:15,
@@ -74,12 +64,19 @@ var styles = StyleSheet.create({
       color:PALETTA.NORMAL_b2,
     },
     trendsToolBlock:{
-      alignItems:'flex-end',
-      marginTop:3,
+      flexDirection:'row',
+      marginTop:5,
+      justifyContent:'flex-end',
+    },
+    trendToolLi: {
+      flexDirection:'row',
+      marginLeft:15,
+      alignItems:'center',
     },
     trendsTool:{
       fontSize:SIZE.LIGHT_TIP,
       color:PALETTA.NORMAL_666,
+      marginLeft:5,
     },
 });
 

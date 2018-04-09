@@ -34,9 +34,6 @@ class Home extends Component {
 
     static navigationOptions = ({ navigation }) => ({
         title:'朋友圈',
-        tabBarIcon: ({ tintColor }) => (
-            <Icon name="md-people" size={30} color={tintColor} />
-        ),
     });
 
     constructor(props){
@@ -57,53 +54,62 @@ class Home extends Component {
     renderItem = (item) => {
         const { navigate } = this.props.navigation;
         return (
-                <View style={styles.trends}>
-                    <View style={styles.trendsHead}>
-                        <Image
-                            resizeMode='stretch'
-                            style={{ width: 40, height: 40, }}
-                            source={{uri:item.ava}}
-                        />
-                    </View>
-                    <View style={styles.trendsRight}>
-                        <View style={styles.trendsTitleBlock}>
-                            <Text style={styles.trendsTitleLink}>
-                                {item.org}
+            <View style={styles.trends}>
+                <View style={styles.trendsHead}>
+                    <Image
+                        resizeMode='stretch'
+                        style={{ width: 40, height: 40, }}
+                        source={{ uri: item.ava }}
+                    />
+                </View>
+                <View style={styles.trendsRight}>
+                    <View style={styles.trendsTitleBlock}>
+                        <Text style={styles.trendsTitleLink}>
+                            {item.org}
+                        </Text>
+                        <Text style={styles.trendsTitleNormal}>
+                            分享活动
                             </Text>
-                            <Text style={styles.trendsTitleNormal}>
-                                分享活动
+                    </View>
+                    <Text style={styles.trendsTime}>
+                        {item.time}
+                    </Text>
+                    <Text style={styles.trendsDes}>
+                        {item.des}
+                    </Text>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('OneActivity')}
+                    >
+                        <View style={styles.trendsShare}>
+                            <View>
+                                <Image
+                                    resizeMode='stretch'
+                                    style={{ width: 40, height: 40, marginRight: 10, }}
+                                    source={{ uri: item.shareAva }}
+                                />
+                            </View>
+                            <View style={{ justifyContent: 'center' }}>
+                                <Text style={styles.trendsShareTitle}>{item.shareTitle}</Text>
+                                <Text style={styles.trendsShareTip}>{item.shareTime}</Text>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                    <View style={styles.trendsToolBlock}>
+                        <View style={styles.trendToolLi}>
+                            <Icon name="md-text" size={15} />
+                            <Text style={styles.trendsTool}>
+                                0
                             </Text>
                         </View>
-                        <Text style={styles.trendsTime}>
-                            {item.time}
-                        </Text>
-                        <Text style={styles.trendsDes}>
-                            {item.des}
-                        </Text>
-                        <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('OneActivity')}
-                        >
-                            <View style={styles.trendsShare}>
-                                <View>
-                                    <Image
-                                        resizeMode='stretch'
-                                        style={{ width: 40, height: 40, marginRight:10,}}
-                                        source={{uri:item.shareAva}}
-                                    />
-                                </View>
-                                <View style={{justifyContent:'center'}}>
-                                    <Text style={styles.trendsShareTitle}>{item.shareTitle}</Text>
-                                    <Text style={styles.trendsShareTip}>{item.shareTime}</Text>
-                                </View>
-                            </View>
-                        </TouchableOpacity>
-                        <View style={styles.trendsToolBlock}>
+                        <View style={styles.trendToolLi}>
+                            <Icon name="md-thumbs-up" size={15} />
                             <Text style={styles.trendsTool}>
-                                点赞
+                                0
                             </Text>
                         </View>
                     </View>
                 </View>
+            </View>
         );
     }
 
