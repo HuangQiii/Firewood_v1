@@ -9,33 +9,6 @@ var styles = StyleSheet.create({
       backgroundColor: PALETTA.LIGHT_BG,
       flexDirection: 'column',
     },
-    interstCom: {
-      paddingHorizontal:20,
-      paddingVertical:15,
-    },
-    title: {
-        fontSize:18,
-        color:'#000',
-        marginBottom:15,
-    },
-    card: {
-      padding:10,
-      marginBottom:10,
-      backgroundColor:'#eee',
-      borderRadius:10,
-      flexDirection:'row',
-    },
-    cardHead:{
-      width:60,
-      height:60,
-      overflow:'hidden',
-      // alignSelf:'center',
-    },
-    cardText:{
-      flex:1,
-      paddingLeft:10,
-      justifyContent:'space-between',
-    },
     trendsBorder:{
       borderBottomWidth:1,
       borderBottomColor:PALETTA.LOGHT_SPLIT,
@@ -130,12 +103,19 @@ var styles = StyleSheet.create({
       color:PALETTA.NORMAL_b2,
     },
     trendsToolBlock:{
-      alignItems:'flex-end',
+      flexDirection:'row',
       marginTop:5,
+      justifyContent:'flex-end',
+    },
+    trendToolLi: {
+      flexDirection:'row',
+      marginLeft:15,
+      alignItems:'center',
     },
     trendsTool:{
       fontSize:SIZE.LIGHT_TIP,
       color:PALETTA.NORMAL_666,
+      marginLeft:5,
     },
 });
 
