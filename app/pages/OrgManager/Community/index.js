@@ -1,86 +1,94 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
+import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
-import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
+import ScrollableTabView, { DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import IconBlock from '../../../components/IconBlock';
 
 let CONNECT_BOOL;
 const { width, height } = Dimensions.get('window');
 const DATA = [
     {
-        id:1,
-        name:'小明',
-        des:'开发部',
-        ava:'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
+        id: 1,
+        name: '小明',
+        des: '开发部',
+        ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
 ];
 class CommunityAll extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            dataSource:new ListView.DataSource({
-                rowHasChanged:(row1,row2)=>row1!==row2,
+        this.state = {
+            dataSource: new ListView.DataSource({
+                rowHasChanged: (row1, row2) => row1 !== row2,
             })
         }
     }
 
     componentDidMount() {
         this.setState({
-            dataSource:this.state.dataSource.cloneWithRows(DATA),
+            dataSource: this.state.dataSource.cloneWithRows(DATA),
         });
     }
 
     renderItem = (item) => {
         return (
-            <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('OneUser')}
-            >
             <View style={styles.orgWrapper}>
                 <View style={styles.orgList}>
                     <View style={styles.orgHeader}>
                         <Image
                             resizeMode='stretch'
                             style={{ width: 40, height: 40, }}
-                            source={{uri:item.ava}}
+                            source={{ uri: item.ava }}
                         />
                     </View>
                     <View style={styles.orgSection}>
-                        <Text style={styles.orgName}>
-                            {item.name}
-                        </Text>
-                         <Text style={styles.orgDes}>
-                            {item.des}
-                        </Text>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('OneUser')}
+                        >
+                            <Text style={styles.orgName}>
+                                {item.name}
+                            </Text>
+                            <Text style={styles.orgDes}>
+                                {item.des}
+                            </Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.orgBehavior}>
-                        <View style={styles.orgButton}>
-                            <Text style={styles.orgButtonWord}>授权</Text>
-                        </View>
-                        <View style={styles.orgButton}>
-                            <Text style={styles.orgButtonWord}>踢出</Text>
-                        </View>
+                        <TouchableOpacity
+                            onPress={() => alert('关注')}
+                        >
+                            <View style={styles.orgButton}>
+                                <Text style={styles.orgButtonWord}>授权</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => alert('关注')}
+                        >
+                            <View style={styles.orgButton}>
+                                <Text style={styles.orgButtonWord}>踢出</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
-                </View>
-            </TouchableOpacity>
+            </View>
         );
     }
 
     render() {
         return (
             <ScrollView>
-                <View style={{paddingHorizontal:20}}>
-                    <View style={{paddingVertical:15,}}>
+                <View style={{ paddingHorizontal: 20 }}>
+                    <View style={{ paddingVertical: 15, }}>
                         <Text style={styles.title}>申请列表</Text>
                     </View>
                     <ListView
                         dataSource={this.state.dataSource}
                         renderRow={this.renderItem}
                     />
-                    <View style={{paddingVertical:15,}}>
+                    <View style={{ paddingVertical: 15, }}>
                         <Text style={styles.title}>组织人员</Text>
                     </View>
                     <ListView
@@ -95,9 +103,9 @@ class CommunityAll extends Component {
 
 export default connect(
     (state) => ({
-        
+
     }),
     (dispatch) => ({
-        
+
     })
 )(CommunityAll)

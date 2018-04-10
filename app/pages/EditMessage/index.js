@@ -35,7 +35,7 @@ class EditMessage extends Component {
                 <View style={styles.header}>
                     <View style={styles.wrap}>
                         <View style={styles.text}>
-                            <Text>头像</Text>
+                            <Text style={styles.title}>头像</Text>
                         </View>
                         <View style={styles.head}>
                             <Image
@@ -52,6 +52,7 @@ class EditMessage extends Component {
                         text={'昵称'}
                         listHeight={55}
                         content={'Qyellow'}
+                        onPress={() => navigate('EditProp')}
                     />
                     <List
                         iconSize={20}

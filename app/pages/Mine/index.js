@@ -50,34 +50,40 @@ class Mine extends Component {
                             </View>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('OrgManager')}
-                    >
-                        <View style={styles.org}>
-                            <View style={styles.orgIcon}>
-                                <Icon name="md-people" size={30} color={PALETTA.NORMAL_666} />
-                            </View>
-                            <View style={{flex:1}}>
-                                <View style={styles.orgList}>
-                                    <View style={{justifyContent:'center'}}>
-                                        <Text style={styles.orgTitle}>我的组织</Text>
-                                        <Text style={styles.orgContent}>光华园</Text>
-                                    </View>
-                                    <View style={styles.orgSetting}>
-                                        <Icon name="md-settings" size={20} />
-                                    </View>
+                    <View style={styles.org}>
+                        <View style={styles.orgIcon}>
+                            <Icon name="md-people" size={30} color={PALETTA.NORMAL_666} />
+                        </View>
+                        <View style={{ flex: 1 }}>
+                            <View style={styles.orgList}>
+                                <View style={{ justifyContent: 'center' }}>
+                                    <Text style={styles.orgTitle}>我的组织</Text>
+                                    <Text style={styles.orgContent}>光华园</Text>
                                 </View>
-                                <View style={[styles.orgList,{marginTop:15,}]}>
-                                    <View style={{justifyContent:'center'}}>
-                                        <Text style={styles.orgContent}>Global软件部落</Text>
-                                    </View>
-                                    <View style={styles.orgSetting}>
+                                <View style={styles.orgSetting}>
+                                    <TouchableOpacity
+                                        onPress={() => this.props.navigation.navigate('OrgManager')}
+                                    >
                                         <Icon name="md-settings" size={20} />
-                                    </View>
+                                    </TouchableOpacity>
+
+                                </View>
+                            </View>
+                            <View style={[styles.orgList, { marginTop: 15, }]}>
+                                <View style={{ justifyContent: 'center' }}>
+                                    <Text style={styles.orgContent}>Global软件部落</Text>
+                                </View>
+                                <View style={styles.orgSetting}>
+                                    <TouchableOpacity
+                                        onPress={() => this.props.navigation.navigate('OrgManager')}
+                                    >
+                                        <Icon name="md-settings" size={20} />
+                                    </TouchableOpacity>
+
                                 </View>
                             </View>
                         </View>
-                    </TouchableOpacity>
+                    </View>
                     <View style={styles.section}>
                         <View style={styles.titleBlock}>
                             <Text style={styles.title}>我的柴火</Text>
