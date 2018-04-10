@@ -11,8 +11,8 @@ var styles = StyleSheet.create({
         alignItems:'center',
     },
     logo:{
-      width:70,
-      height:100,
+      width:90,
+      height:90,
     },
     input:{
       width: width - 70,
@@ -26,7 +26,7 @@ var styles = StyleSheet.create({
       height:50,
       borderRadius:25,
       borderWidth:2,
-      borderColor:'#fff',
+      borderColor:PALETTA.NORMAL_888,
       justifyContent:'center',
       alignItems:'center',
       marginTop:50,

@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TextInput, TouchableOpacity, Dimensions, Image } from 'react-native';
+import { View, TextInput, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './style';
 import { PALETTA, SIZE } from '../../style/Common';
 
-const { width, height } = Dimensions.get('window');
-
 export default class Login extends Component {
-
-  static navigationOptions = ({ navigation }) => ({
-    title: `登录`,
-  });
 
   constructor(props) {
     super(props);
@@ -22,13 +16,13 @@ export default class Login extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <View>
           <Image
             style={styles.logo}
-            // resizeMode='cover'
-            source={require('../../images/logo.png')}
+            source={require('../../images/fire.png')}
           />
         </View>
         <View>
@@ -41,9 +35,11 @@ export default class Login extends Component {
           />
         </View>
 
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigate('Main')}
+        >
           <View style={styles.button}>
-            <Icon name="md-arrow-forward" size={30} color={'#fff'} />
+            <Icon name="md-arrow-forward" size={30} color={PALETTA.NORMAL_888} />
           </View>
         </TouchableOpacity>
       </View >

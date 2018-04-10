@@ -12,12 +12,12 @@ import Attention from '../pages/UserAttention';
 import Join from '../pages/UserJoin';
 // import New from '../pages/UserCreate';
 
-import Login from '../pages/Login';
 import NewActivity from '../pages/NewActivity';
 import Information from '../pages/Information';
 import Write from '../pages/Write';
 import EditProp from '../pages/EditProp';
 
+import Login from '../pages/Login';
 import OrgManager from '../pages/OrgManager';
 import EditMessage from '../pages/EditMessage';
 import Circle from '../pages/Circle';
@@ -81,7 +81,12 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {
-
+        Login: {
+            screen: Login,
+            navigationOptions: {
+                header: null
+            }
+        },
         Main: {
             screen: TabContainer,
             navigationOptions: {
@@ -101,12 +106,7 @@ const App = StackNavigator(
         EditMessage: {
             screen: EditMessage,
         },
-        Login: {
-            screen: Login,
-            navigationOptions: {
-                header: null
-            }
-        },
+        
         NewActivity: {
             screen: NewActivity,
         },
