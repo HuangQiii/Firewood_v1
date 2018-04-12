@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
+import { ScrollView, AppState, View, Dimensions, StyleSheet, Text,TextInput, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules,FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
@@ -18,12 +18,11 @@ class Mine extends Component {
     constructor(props){
         super(props);
         this.state={
+            icons: [],
         }
     }
 
     componentDidMount() {
-        this.setState({
-        });
     }
 
     render() {
@@ -39,34 +38,71 @@ class Mine extends Component {
                                 source={require('../../images/back.png')}
                             />
                             <View style={styles.headerText}>
-                                <View>
-                                    <Text style={styles.activityName}>编辑活动名</Text>
-                                    <Text style={styles.activityTip}>编辑活动地点</Text>
-                                    <Text style={styles.activityTip}>编辑活动时间</Text>
-                                </View>
+                                    <TextInput
+                                        style={styles.input}
+                                        placeholder={'点击此处编辑活动名'}
+                                        placeholderTextColor={'#fff'}
+                                        underlineColorAndroid='transparent'
+                                        caretHidden={false}
+                                        maxLength={300}
+                                        style={{fontSize:24,color:'#fff',}}
+                                    />
+                                    <TextInput
+                                        style={[styles.input]}
+                                        placeholder={'点击此处编辑活动地点'}
+                                        placeholderTextColor={'#fff'}
+                                        underlineColorAndroid='transparent'
+                                        caretHidden={false}
+                                        maxLength={300}
+                                    />
+                                    <TextInput
+                                        style={styles.input}
+                                        placeholder={'点击此处编辑活动时间'}
+                                        placeholderTextColor={'#fff'}
+                                        underlineColorAndroid='transparent'
+                                        caretHidden={false}
+                                        maxLength={300}
+                                    />
                             </View>
                         </View>
                         <View style={styles.section}>
                             <View style={styles.titleBlock}>
                                 <Text style={styles.title}>标签</Text>
+                                <TouchableOpacity
+                                    onPress={()=>{
+                                        const arr = this.state.icons.slice();
+                                        arr.push('标签');
+                                        this.setState({icons: arr});
+                                    }}
+                                >
+                                    <Icon name="md-add" size={20} />
+                                </TouchableOpacity>
                             </View>
                             <View style={styles.trendsLabel}>
-                                <View style={styles.trendsLabelWrapper}>
-                                    <Text style={styles.trendsLabelWord}>第二课堂学分</Text>
-                                </View>
-                                <View style={styles.trendsLabelWrapper}>
-                                    <Text style={styles.trendsLabelWord}>奖金</Text>
-                                </View>
-                                <View style={styles.trendsLabelWrapper}>
-                                    <Text style={styles.trendsLabelWord}>证书</Text>
-                                </View>
+                                {
+                                    this.state.icons.map(icon => (
+                                        <TextInput
+                                            style={[styles.input,styles.trendsLabelWrapper,styles.trendsLabelWord]}
+                                            defaultValue={icon}
+                                            underlineColorAndroid='transparent'
+                                            caretHidden={false}
+                                        />
+                                    ))
+                                }
                             </View>
                         </View>
                         <View style={styles.section}>
                             <View style={styles.titleBlock}>
                                 <Text style={styles.title}>活动简介</Text>
                             </View>
-                            <Text>    编辑活动简介。</Text>
+                            <TextInput
+                                style={styles.input}
+                                placeholder={'点击此处编辑活动内容'}
+                                underlineColorAndroid='transparent'
+                                multiline 
+                                caretHidden={false}
+                                maxLength={300}
+                            />
                         </View>
                     </ScrollView>
                 </View>

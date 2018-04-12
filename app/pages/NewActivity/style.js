@@ -20,8 +20,9 @@ var styles = StyleSheet.create({
         bottom:0,
         paddingHorizontal:20,
         paddingVertical:15,
-        flexDirection:'row',
-        justifyContent:'space-between',
+        // flexDirection:'row',
+        // justifyContent:'space-between',
+        // backgroundColor:'red',
     },
     activityName:{
         fontSize:24,
@@ -136,6 +137,12 @@ var styles = StyleSheet.create({
         borderLeftColor:PALETTA.LOGHT_SPLIT,
         borderLeftWidth:1,
 
+    },
+    input:{
+      borderColor: 'transparent',
+      borderWidth: 1,
+    //   borderBottomColor:PALETTA.LOGHT_SPLIT,
+        paddingVertical:0,
     },
 });
 
