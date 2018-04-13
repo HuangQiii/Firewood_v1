@@ -98,6 +98,8 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.firewood_mobile"
         minSdkVersion 16
         targetSdkVersion 22
@@ -137,7 +139,7 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-vector-icons')
+    compile project(':react-native-image-crop-picker')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
