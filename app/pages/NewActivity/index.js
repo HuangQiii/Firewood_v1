@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
 import IconBlock from '../../components/IconBlock';
+var ImagePicker = NativeModules.ImageCropPicker;
 
 const { width, height } = Dimensions.get('window');
 
@@ -19,10 +20,51 @@ class Mine extends Component {
         super(props);
         this.state={
             icons: [],
+            image: null,
         }
     }
 
     componentDidMount() {
+    }
+
+    pickSingle(cropit, circular = false) {
+        ImagePicker.openPicker({
+            width: 300,
+            height: 300,
+            cropping: cropit,
+            cropperCircleOverlay: circular,
+            compressImageMaxWidth: 640,
+            compressImageMaxHeight: 480,
+            compressImageQuality: 0.5,
+            compressVideoPreset: 'MediumQuality',
+        }).then(image => {
+            console.log('received image', image);
+            this.setState({
+                image: { uri: image.path, width: image.width, height: image.height, mime: image.mime },
+            });
+        }).catch(e => {
+            console.log(e);
+            Alert.alert(e.message ? e.message : e);
+        });
+    }
+    pickSingleWithCamera(cropping) {
+        ImagePicker.openCamera({
+            cropping: cropping,
+            width: 500,
+            height: 500,
+        }).then(image => {
+            console.log('received image', image);
+            this.setState({
+                image: { uri: image.path, width: image.width, height: image.height },
+            });
+        }).catch(e => alert(e));
+    }
+    _renderImage(image) {
+        if (image != 'default') {
+            return <Image style={{width:width,height:200,}} resizeMode = 'cover' source={image} />
+        } else {
+            return <Image style={{width:width,height:200,}} resizeMode = 'cover' source={require('../../images/back.png')} />
+        }
     }
 
     render() {
@@ -32,11 +74,24 @@ class Mine extends Component {
                 <View style={{flex:1}}>
                     <ScrollView>
                         <View style={styles.header}>
-                            <Image
+                            {this.state.image ? this._renderImage(this.state.image) : this._renderImage('default')}
+                            {/*<Image
                                 style={{width:width,height:200,}}
                                 resizeMode = 'cover'
                                 source={require('../../images/back.png')}
-                            />
+                            />*/}
+                            <View style={styles.iconBlock}>
+                                <TouchableOpacity
+                                    onPress={()=>this.pickSingle(true, true)}
+                                >
+                                    <Icon name="md-folder-open" size={25} color={'#fff'} style={{marginRight:20,}} />
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    onPress={()=>this.pickSingleWithCamera(true)}
+                                >
+                                    <Icon name="md-camera" size={25} color={'#fff'} />
+                                </TouchableOpacity>
+                            </View>
                             <View style={styles.headerText}>
                                     <TextInput
                                         style={styles.input}

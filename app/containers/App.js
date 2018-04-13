@@ -16,6 +16,7 @@ import NewActivity from '../pages/NewActivity';
 import Information from '../pages/Information';
 import Write from '../pages/Write';
 import EditProp from '../pages/EditProp';
+// import Head from '../pages/Head';
 
 import Login from '../pages/Login';
 import OrgManager from '../pages/OrgManager';
@@ -81,6 +82,12 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {
+        NewActivity: {
+            screen: NewActivity,
+        },
+        // Head: {
+        //     screen: Head,
+        // },
         Login: {
             screen: Login,
             navigationOptions: {
@@ -107,9 +114,7 @@ const App = StackNavigator(
             screen: EditMessage,
         },
         
-        NewActivity: {
-            screen: NewActivity,
-        },
+        
         OrgManager: {
             screen: OrgManager,
         },

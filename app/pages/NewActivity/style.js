@@ -13,6 +13,16 @@ var styles = StyleSheet.create({
         height:200,
         position:'relative',
     },
+    iconBlock:{
+        width:width,
+        position:'absolute',
+        left:0,
+        top:0,
+        paddingHorizontal:20,
+        paddingVertical:15,
+        flexDirection:'row',
+        justifyContent:'flex-end',
+    },
     headerText:{
         width:width,
         position:'absolute',
