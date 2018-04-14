@@ -12,16 +12,15 @@ import Attention from '../pages/UserAttention';
 import Join from '../pages/UserJoin';
 // import New from '../pages/UserCreate';
 
-import NewActivity from '../pages/NewActivity';
 import Information from '../pages/Information';
-import Write from '../pages/Write';
 import EditProp from '../pages/EditProp';
-// import Head from '../pages/Head';
 
 import Login from '../pages/Login';
 import OrgManager from '../pages/OrgManager';
 import EditMessage from '../pages/EditMessage';
 import Circle from '../pages/Circle';
+import NewActivity from '../pages/NewActivity';
+import Write from '../pages/Write';
 
 import { PALETTA, SIZE } from '../style/Common';
 

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Button from '../../components/Button';
 var dismissKeyboard = require('dismissKeyboard');
 
 let feedbackText;
-// const aboutLogo = require('../images/about_logo.png');
 export default class ThirdPage extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: '留言',
     headerRight: (
-      <Icon
-        size={25}
+      <Icon.Button
         name="md-checkmark"
+        color={'#000'}
         backgroundColor="transparent"
         underlayColor="transparent"
         activeOpacity={0.8}
