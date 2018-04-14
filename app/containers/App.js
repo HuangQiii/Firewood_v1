@@ -82,9 +82,6 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {
-        NewActivity: {
-            screen: NewActivity,
-        },
         // Head: {
         //     screen: Head,
         // },
@@ -114,7 +111,9 @@ const App = StackNavigator(
             screen: EditMessage,
         },
         
-        
+        NewActivity: {
+            screen: NewActivity,
+        },
         OrgManager: {
             screen: OrgManager,
         },
