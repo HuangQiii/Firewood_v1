@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Button from '../../components/Button';
 var dismissKeyboard = require('dismissKeyboard');
 import { PALETTA, SIZE } from '../../style/Common';
 
@@ -8,11 +9,11 @@ let feedbackText = '';
 export default class ThirdPage extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: '更改信息',
+    title: `更改${navigation.state.params.title}`,
     headerRight: (
-      <Icon
-        size={25}
+      <Icon.Button
         name="md-checkmark"
+        color={'#000'}
         backgroundColor="transparent"
         underlayColor="transparent"
         activeOpacity={0.8}
@@ -31,16 +32,17 @@ export default class ThirdPage extends Component {
 
   componentDidMount() {
     this.props.navigation.setParams({ handleCheck: this.onActionSelected });
+    console.log(this.props.navigation);
+    const {prop, value, placeholder} = this.props.navigation.state.params;
+    this.setState({
+      value,
+      prop,
+      placeholder
+    });
   }
 
   onActionSelected = () => {
-    if (feedbackText === undefined || feedbackText.replace(/\s+/g, '') === '') {
-      alert('请重新填写');
-    } else {
-      alert('提交成功');
-      this.textInput.clear();
-      dismissKeyboard();
-    }
+    alert(this.state.value);
   };
 
   _onTouchStart() {
@@ -52,10 +54,12 @@ export default class ThirdPage extends Component {
       <View style={styles.container}>
         <TextInput
           style={styles.input}
-          placeholder={'手机号'}
+          placeholder={this.state.placeholder}
           placeholderTextColor={PALETTA.NORMAL_888}
           underlineColorAndroid='transparent'
           caretHidden
+          onChangeText={(text) => this.setState({value:text})}
+          value={this.state.value}
         />
       </View >
     );
@@ -71,7 +75,6 @@ const styles = StyleSheet.create({
     paddingVertical:15,
   },
   input:{
-    // width: width - 70,
     borderColor: 'transparent',
     borderWidth: 1,
     borderBottomColor:PALETTA.LOGHT_SPLIT,

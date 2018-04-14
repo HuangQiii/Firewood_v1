@@ -13,7 +13,6 @@ import Join from '../pages/UserJoin';
 // import New from '../pages/UserCreate';
 
 import Information from '../pages/Information';
-import EditProp from '../pages/EditProp';
 
 import Login from '../pages/Login';
 import OrgManager from '../pages/OrgManager';
@@ -21,6 +20,7 @@ import EditMessage from '../pages/EditMessage';
 import Circle from '../pages/Circle';
 import NewActivity from '../pages/NewActivity';
 import Write from '../pages/Write';
+import EditProp from '../pages/EditProp';
 
 import { PALETTA, SIZE } from '../style/Common';
 
