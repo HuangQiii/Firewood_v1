@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules, FlatList } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { ScrollView, View, Text, Image, TouchableOpacity, ListView } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './style';
 
-const { width, height } = Dimensions.get('window');
 const DATA = [
     {
         id: 1,
@@ -27,7 +25,7 @@ const DATA = [
         orgAva: 'https://avatars2.githubusercontent.com/u/25194050?s=96&v=4',
     },
 ];
-class ActivityAll extends Component {
+class System extends Component {
 
     constructor(props) {
         super(props);
@@ -70,12 +68,6 @@ class ActivityAll extends Component {
                                     {item.name}
                                 </Text>
                             </View>
-                            {/*<Text style={styles.trendsPlace}>
-                                {item.place}
-                            </Text>
-                            <Text style={styles.trendsTime}>
-                                {item.time}
-                            </Text>*/}
                             <Text
                                 numberOfLines={2}
                                 style={styles.trendsDes}
@@ -103,9 +95,7 @@ class ActivityAll extends Component {
 
 export default connect(
     (state) => ({
-
     }),
     (dispatch) => ({
-
     })
-)(ActivityAll)
+)(System)
