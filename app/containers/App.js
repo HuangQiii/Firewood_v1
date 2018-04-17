@@ -3,17 +3,12 @@ import Home from '../pages/Home';
 import Community from '../pages/Community';
 import Activity from '../pages/Activity';
 import Mine from '../pages/Mine';
-
 import OneActivity from '../pages/OneActivity';
 import OneCommunity from '../pages/OneOrg';
 import OneUser from '../pages/OneUser';
-
 import Attention from '../pages/UserAttention';
 import Join from '../pages/UserJoin';
-// import New from '../pages/UserCreate';
-
 import Information from '../pages/Information';
-
 import Login from '../pages/Login';
 import OrgManager from '../pages/OrgManager';
 import EditMessage from '../pages/EditMessage';
@@ -81,9 +76,6 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {
-        // Head: {
-        //     screen: Head,
-        // },
         Login: {
             screen: Login,
             navigationOptions: {
@@ -125,9 +117,6 @@ const App = StackNavigator(
         Join: {
             screen: Join,
         },
-        // New: {
-        //     screen: New,
-        // },
         Circle: {
             screen: Circle,
         },

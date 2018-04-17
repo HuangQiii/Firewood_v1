@@ -8,7 +8,7 @@ import Activity from './Activity';
 
 class UserJoin extends Component {
 
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         title: '我的参与',
     });
 
@@ -22,7 +22,6 @@ class UserJoin extends Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <ScrollableTabView
@@ -54,9 +53,4 @@ class UserJoin extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(UserJoin)
+export default connect()(UserJoin)

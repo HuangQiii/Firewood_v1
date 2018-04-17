@@ -46,7 +46,7 @@ const DATA = [
 ];
 
 class OneUser extends Component {
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-person" size={30} color={tintColor} />
         ),
@@ -65,6 +65,10 @@ class OneUser extends Component {
     }
 
     componentDidMount() {
+        this.initData();
+    }
+
+    initData() {
         this.setState({
             dataSourceCommit: this.state.dataSourceCommit.cloneWithRows(DATA),
             dataSource: this.state.dataSource.cloneWithRows(DATA_ORG.slice(0,5)),
@@ -227,9 +231,4 @@ class OneUser extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(OneUser)
+export default connect()(OneUser)

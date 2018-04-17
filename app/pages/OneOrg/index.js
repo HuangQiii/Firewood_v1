@@ -29,7 +29,7 @@ const DATA = [
 
 class OneOrg extends Component {
 
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-person" size={30} color={tintColor} />
         ),
@@ -45,6 +45,10 @@ class OneOrg extends Component {
     }
 
     componentDidMount() {
+        this.initData();
+    }
+
+    initData() {
         this.setState({
             dataSourceCommit: this.state.dataSourceCommit.cloneWithRows(DATA),
         });
@@ -182,9 +186,4 @@ class OneOrg extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(OneOrg)
+export default connect()(OneOrg)

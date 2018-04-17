@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, TextInput, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules, FlatList } from 'react-native';
+import { ScrollView, View, Dimensions, Text, TextInput, Image, TouchableOpacity, NativeModules, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
-import IconBlock from '../../components/IconBlock';
-import Button from '../../components/Button';
 var ImagePicker = NativeModules.ImageCropPicker;
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 class Mine extends Component {
 
@@ -92,7 +90,6 @@ class Mine extends Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <View style={{ flex: 1 }}>
@@ -204,9 +201,4 @@ class Mine extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(Mine)
+export default connect()(Mine)

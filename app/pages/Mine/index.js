@@ -4,10 +4,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import List from '../../components/List';
 import styles from './style';
-import { PALETTA, SIZE } from '../../style/Common';
+import { PALETTA } from '../../style/Common';
 
 class Mine extends Component {
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-person" size={30} color={tintColor} />
         ),
@@ -163,9 +163,4 @@ class Mine extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(Mine)
+export default connect()(Mine)

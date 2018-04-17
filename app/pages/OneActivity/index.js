@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import styles from './style';
 import IconBlock from '../../components/IconBlock';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 const DATA = [
     {
         id: 1,
@@ -42,7 +42,7 @@ const DATA_COMMIT = [
 
 class OneActivity extends Component {
 
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-person" size={30} color={tintColor} />
         ),
@@ -61,6 +61,10 @@ class OneActivity extends Component {
     }
 
     componentDidMount() {
+        this.initData();
+    }
+
+    initData() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(DATA.slice(0, 5)),
             dataSourceCommit: this.state.dataSourceCommit.cloneWithRows(DATA_COMMIT),
@@ -228,9 +232,4 @@ Many JavaScript developers know that ES modules have been controversial. But few
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(OneActivity)
+export default connect()(OneActivity)

@@ -58,6 +58,10 @@ class ActivityAll extends Component {
     }
 
     componentDidMount() {
+        this.initData();
+    }
+
+    initData() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(DATA),
         });
@@ -163,9 +167,4 @@ class ActivityAll extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(ActivityAll)
+export default connect()(ActivityAll)

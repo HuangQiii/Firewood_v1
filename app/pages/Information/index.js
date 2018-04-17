@@ -7,7 +7,7 @@ import System from './System';
 
 class Information extends Component {
 
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         title: '消息中心',
     });
 
@@ -21,7 +21,6 @@ class Information extends Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <ScrollableTabView
@@ -53,9 +52,4 @@ class Information extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(Information)
+export default connect()(Information)

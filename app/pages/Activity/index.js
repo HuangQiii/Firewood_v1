@@ -6,31 +6,8 @@ import styles from './style';
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import ActivityAll from './ActivityAll';
 
-const DATA = [
-    {
-        id: 1,
-        name: '光华园',
-        org: '光华园',
-        des: '我们要在哪里哪里举办什么什么了，丰厚奖品等你来拿，具体链接请戳。。。',
-        time: '2018.3.11 14:00',
-    },
-    {
-        id: 2,
-        name: '十佳歌手',
-        org: '恩恩恩',
-        des: '我们要在哪里哪里举办什么什么了，丰厚奖品等你来拿，具体链接请戳。。。',
-        time: '2018.3.11 14:00',
-    },
-    {
-        id: 3,
-        name: '舞动青春',
-        org: '恩恩恩',
-        des: '我们要在哪里哪里举办什么什么了，丰厚奖品等你来拿，具体链接请戳。。。',
-        time: '2018.3.11 14:00',
-    }
-];
 class Activity extends Component {
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-pricetag" size={30} color={tintColor} />
         ),
@@ -51,13 +28,11 @@ class Activity extends Component {
     }
 
     changeTo(num) {
-        // const { navigate, state } = this.props.navigation;
-        // const type = state.params && state.params.type || 0;
         setTimeout(() => this.scrollableTabView.goToPage(num), 0);
     }
 
     render() {
-        const { navigate, state } = this.props.navigation;
+        const { state } = this.props.navigation;
         const type = state.params && state.params.type || 0;
         console.log(type);
         return (
@@ -96,9 +71,4 @@ class Activity extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(Activity)
+export default connect()(Activity)

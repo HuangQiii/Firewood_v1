@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableOpacity, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
 import IconBlock from '../../../components/IconBlock';
 
-const { width, height } = Dimensions.get('window');
 const DATA = [
     {
         id: 1,
@@ -46,7 +45,7 @@ const DATA_COMMUNITY = [
     }
 ];
 class CommunityAttention extends Component {
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-people" size={30} color={tintColor} />
         ),
@@ -65,6 +64,10 @@ class CommunityAttention extends Component {
     }
 
     componentDidMount() {
+        this.initData();
+    }
+
+    initData() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(DATA.slice(0,5)),
             dataSourceCommunity: this.state.dataSourceCommunity.cloneWithRows(DATA_COMMUNITY),
@@ -72,7 +75,6 @@ class CommunityAttention extends Component {
     }
 
     renderItem = (item) => {
-        const { navigate } = this.props.navigation;
         return (
             <View style={styles.trends}>
                 <View style={styles.trendsHead}>
@@ -190,9 +192,4 @@ class CommunityAttention extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(CommunityAttention)
+export default connect()(CommunityAttention)

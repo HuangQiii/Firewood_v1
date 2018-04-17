@@ -10,7 +10,7 @@ import Activity from './Activity';
 
 class UserAttention extends Component {
 
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         title: '我的关注',
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-people" size={30} color={tintColor} />
@@ -27,7 +27,6 @@ class UserAttention extends Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <ScrollableTabView
@@ -64,9 +63,4 @@ class UserAttention extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(UserAttention)
+export default connect()(UserAttention)

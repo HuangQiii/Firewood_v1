@@ -34,6 +34,10 @@ class CommunityAll extends Component {
     }
 
     componentDidMount() {
+        this.initData();
+    }
+
+    initData() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(DATA),
         });
@@ -90,9 +94,4 @@ class CommunityAll extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(CommunityAll)
+export default connect()(CommunityAll)

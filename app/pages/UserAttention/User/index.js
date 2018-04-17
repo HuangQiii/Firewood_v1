@@ -28,6 +28,10 @@ class User extends Component {
     }
 
     componentDidMount() {
+        this.initData();
+    }
+
+    initData() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(DATA),
         });
@@ -84,10 +88,5 @@ class User extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(User)
+export default connect()(User)
 

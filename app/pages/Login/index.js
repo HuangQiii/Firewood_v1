@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './style';
-import { PALETTA, SIZE } from '../../style/Common';
+import { PALETTA } from '../../style/Common';
 
 export default class Login extends Component {
 

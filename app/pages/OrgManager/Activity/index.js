@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, AppState, View, Dimensions, StyleSheet, Text, Image, TouchableOpacity, ListView, TouchableHighlight, DeviceEventEmitter, NetInfo, NativeModules, FlatList } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { ScrollView, View, Dimensions, Text, Image, TouchableOpacity, ListView} from 'react-native';
 import { connect } from 'react-redux';
 import styles from './style';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 const DATA = [
     {
         id: 1,
@@ -39,6 +38,10 @@ class Activity extends Component {
     }
 
     componentDidMount() {
+        this.initData();
+    }
+
+    initData() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(DATA),
         });
@@ -114,9 +117,4 @@ class Activity extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(Activity)
+export default connect()(Activity)

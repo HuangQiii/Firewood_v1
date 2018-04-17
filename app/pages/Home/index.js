@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 import styles from './style';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 const DATA_NEWEST = [
     {
         id: 1,
@@ -59,7 +59,7 @@ const DATA_POPULAR = [
 ];
 
 class Home extends Component {
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         tabBarIcon: ({ tintColor }) => (
             <Icon name="md-home" size={30} color={tintColor} />
         ),
@@ -261,10 +261,5 @@ class Home extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(Home)
+export default connect()(Home)
 

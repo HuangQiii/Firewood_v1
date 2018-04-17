@@ -29,7 +29,7 @@ const DATA = [
 
 class Circle extends Component {
 
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         title: '朋友圈',
     });
 
@@ -43,13 +43,16 @@ class Circle extends Component {
     }
 
     componentDidMount() {
+        this.initData();
+    }
+
+    initData() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(DATA),
         });
     }
 
     renderItem = (item) => {
-        const { navigate } = this.props.navigation;
         return (
             <View style={styles.trends}>
                 <View style={styles.trendsHead}>
@@ -111,7 +114,6 @@ class Circle extends Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation;
         return (
             <ScrollView>
                 <View>
@@ -129,9 +131,4 @@ class Circle extends Component {
     }
 }
 
-export default connect(
-    (state) => ({
-    }),
-    (dispatch) => ({
-    })
-)(Circle)
+export default connect()(Circle)
