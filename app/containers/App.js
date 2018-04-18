@@ -16,6 +16,7 @@ import Circle from '../pages/Circle';
 import NewActivity from '../pages/NewActivity';
 import Write from '../pages/Write';
 import EditProp from '../pages/EditProp';
+import Reply from '../pages/Reply';
 
 import { PALETTA, SIZE } from '../style/Common';
 
@@ -125,7 +126,10 @@ const App = StackNavigator(
         },
         EditProp: {
             screen: EditProp,
-        }
+        },
+        Reply: {
+            screen: Reply,
+        },
     },
     {
         headerMode: 'screen',

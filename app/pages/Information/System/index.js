@@ -49,7 +49,7 @@ class System extends Component {
     renderItem = (item) => {
         return (
             <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('OneActivity')}
+                onPress={() => this.props.navigation.navigate('Reply')}
             >
                 <View style={styles.trendsBorder}>
                     <View style={styles.trends}>
