@@ -7,7 +7,9 @@
         <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
         <item name="actionMenuTextAppearance">@style/MenuTextStyle</item>
         <item name="colorPrimaryDark">#f2f4f5</item>
+        <!--<item name="android:textColorPrimary">#666</item>-->
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="MenuTextStyle">
