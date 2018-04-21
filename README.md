@@ -32,3 +32,5 @@ This project is licenced under the [MIT License](http://opensource.org/licenses/
 4. 用户活动：创建组织。
 5. 作为Admin的用户可以管理组织，审核并允许他人加入组织，分配Manager权限，拥有Manager权限的人可以以社团的名义回复。
 6. 组织活动：发布活动，分享活动，评论、回复评论，查看统计信息。
+
+4月21日为止，概念版完成。
