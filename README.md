@@ -3,6 +3,13 @@
 
 **Support:react-native 0.54.0 react 16.3.0-alpha.1**
 
+### Screenshot
+
+![home](./screenshot/home.jpg)
+![org](./screenshot/org.jpg)
+![activity](./screenshot/activity.jpg)
+![mine](./screenshot/mine.jpg)
+
 ### 功能说明
 - 
 
@@ -23,14 +30,17 @@ This project is licenced under the [MIT License](http://opensource.org/licenses/
 ### TODO List
 
 - [x] 概念版
-- [ ] 更多逻辑...
-
-### log
-1. 用户：注册，登录，退出。
-2. 用户活动：查看活动，关注活动，参加活动，分享活动，活动下留言。
-3. 用户活动：组织查询，组织关注，组织留言，申请加入组织。
-4. 用户活动：创建组织。
-5. 作为Admin的用户可以管理组织，审核并允许他人加入组织，分配Manager权限，拥有Manager权限的人可以以社团的名义回复。
-6. 组织活动：发布活动，分享活动，评论、回复评论，查看统计信息。
-
-4月21日为止，概念版完成。
+- [ ] 用户注册、登录、登出
+- [x] 用户查看活动，多入口跳转到活动列表
+- [x] 用户关注、参与活动，留言
+- [x] 用户分享活动到朋友圈
+- [x] 用户查看组织详情
+- [x] 用户查看其他用户详情
+- [x] 用户朋友圈
+- [x] 用户信息中心，查看信息、回复信息
+- [ ] 组织创建
+- [ ] 组织人员管理，接纳新成员，踢出成员，成员角色管理
+- [x] 组织发布活动
+- [ ] 组织角色用户以组织名义回复信息和转发活动
+- [ ] 组织统计信息
+- [ ] 数据对接
