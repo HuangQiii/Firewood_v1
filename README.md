@@ -38,7 +38,7 @@ This project is licenced under the [MIT License](http://opensource.org/licenses/
 - [x] 用户查看其他用户详情
 - [x] 用户朋友圈
 - [x] 用户信息中心，查看信息、回复信息
-- [ ] 组织创建
+- [x] 组织创建
 - [ ] 组织人员管理，接纳新成员，踢出成员，成员角色管理
 - [x] 组织发布活动
 - [ ] 组织角色用户以组织名义回复信息和转发活动
