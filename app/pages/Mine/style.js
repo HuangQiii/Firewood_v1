@@ -46,7 +46,7 @@ var styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         marginRight:20,
-        height:40,
+        // height:40,
     },
     orgList: {
         flexDirection:'row',

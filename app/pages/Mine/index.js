@@ -53,6 +53,11 @@ class Mine extends Component {
                     <View style={styles.org}>
                         <View style={styles.orgIcon}>
                             <Icon name="md-people" size={30} color={PALETTA.NORMAL_666} />
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.navigate('NewOrg')}
+                            >
+                                <Icon name="md-add" size={20} style={{marginTop:20}} />
+                            </TouchableOpacity>
                         </View>
                         <View style={{ flex: 1 }}>
                             <View style={styles.orgList}>

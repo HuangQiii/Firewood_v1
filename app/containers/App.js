@@ -14,6 +14,7 @@ import OrgManager from '../pages/OrgManager';
 import EditMessage from '../pages/EditMessage';
 import Circle from '../pages/Circle';
 import NewActivity from '../pages/NewActivity';
+import NewOrg from '../pages/NewOrg';
 import Write from '../pages/Write';
 import EditProp from '../pages/EditProp';
 import Reply from '../pages/Reply';
@@ -105,6 +106,9 @@ const App = StackNavigator(
         
         NewActivity: {
             screen: NewActivity,
+        },
+        NewOrg: {
+            screen: NewOrg,
         },
         OrgManager: {
             screen: OrgManager,
