@@ -18,6 +18,7 @@ import NewOrg from '../pages/NewOrg';
 import Write from '../pages/Write';
 import EditProp from '../pages/EditProp';
 import Reply from '../pages/Reply';
+import Permission from '../pages/Permission';
 
 import { PALETTA, SIZE } from '../style/Common';
 
@@ -78,6 +79,7 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {
+        
         Login: {
             screen: Login,
             navigationOptions: {
@@ -133,6 +135,9 @@ const App = StackNavigator(
         },
         Reply: {
             screen: Reply,
+        },
+        Permission: {
+            screen: Permission,
         },
     },
     {
