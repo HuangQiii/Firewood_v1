@@ -108,7 +108,7 @@ List.propTypes = propTypes;
 
 List.defaultProps = {
     iconSize: 14,
-    leftIconColor:' #333',
+    leftIconColor: '#333',
     rightIconColor: '#b2b2b2',
     textSize: 14,
     textColor: '#333',
