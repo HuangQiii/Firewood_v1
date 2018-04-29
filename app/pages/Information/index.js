@@ -27,7 +27,7 @@ class Information extends Component {
                     initialPage={0}
                     renderTabBar={() => (
                         <ScrollableTabBar
-                            tabStyle={{ paddingBottom: 0, borderBottom: 0, }}
+                            tabStyle={{ paddingBottom: 0, borderBottomWidth: 0, }}
                             textStyle={{ fontSize: 12 }}
                         />
                     )}
@@ -42,6 +42,11 @@ class Information extends Component {
                         />
                     </View>
                     <View tabLabel='个人信息'>
+                        <System
+                            navigation={this.props.navigation}
+                        />
+                    </View>
+                    <View tabLabel='组织信息'>
                         <System
                             navigation={this.props.navigation}
                         />

@@ -130,7 +130,7 @@ class Mine extends Component {
                         <List
                             leftIconName={'md-paper-plane'}
                             iconSize={20}
-                            text={'我的消息'}
+                            text={'消息中心'}
                             listHeight={55}
                             rightIconName={'ios-arrow-forward'}
                             onPress={() => navigate('Information')}
