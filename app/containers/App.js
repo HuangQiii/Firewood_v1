@@ -18,7 +18,7 @@ import NewOrg from '../pages/NewOrg';
 import Write from '../pages/Write';
 import EditProp from '../pages/EditProp';
 import Reply from '../pages/Reply';
-import Permission from '../pages/Permission';
+import Permission from '../pages/OrgManager/Permission';
 
 import { PALETTA, SIZE } from '../style/Common';
 

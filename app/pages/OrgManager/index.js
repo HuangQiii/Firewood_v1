@@ -5,6 +5,7 @@ import styles from './style';
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import Community from './Community';
 import Activity from './Activity';
+import Permission from './Permission';
 
 class OrgManager extends Component {
 
@@ -44,6 +45,11 @@ class OrgManager extends Component {
                     </View>
                     <View tabLabel='人员管理'>
                         <Community
+                            navigation={this.props.navigation}
+                        />
+                    </View>
+                    <View tabLabel='权限管理'>
+                        <Permission
                             navigation={this.props.navigation}
                         />
                     </View>

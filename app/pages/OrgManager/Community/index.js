@@ -57,7 +57,7 @@ class CommunityAll extends Component {
                     </View>
                     <View style={styles.orgBehavior}>
                         <TouchableOpacity
-                            onPress={() => alert('关注')}
+                            onPress={() => this.props.navigation.navigate('Permission')}
                         >
                             <View style={styles.orgButton}>
                                 <Text style={styles.orgButtonWord}>授权</Text>

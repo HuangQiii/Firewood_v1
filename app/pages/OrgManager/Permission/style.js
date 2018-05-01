@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { PALETTA, SIZE } from '../../style/Common';
+import { PALETTA, SIZE } from '../../../style/Common';
 
 const { width, height } = Dimensions.get('window');
 

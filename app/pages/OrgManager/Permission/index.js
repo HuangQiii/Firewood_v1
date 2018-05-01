@@ -24,7 +24,23 @@ const DATA = [
         ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
 ];
-class CommunityAll extends Component {
+class Permission extends Component {
+
+    static navigationOptions = ({ navigation }) => ({
+    title: '授权',
+    headerRight: (
+      <Icon.Button
+        name="md-checkmark"
+        color={'#000'}
+        backgroundColor="transparent"
+        underlayColor="transparent"
+        activeOpacity={0.8}
+        onPress={() => {
+          navigation.state.params.handleCheck();
+        }}
+      />
+    )
+  });
 
     constructor(props) {
         super(props);
@@ -58,20 +74,16 @@ class CommunityAll extends Component {
                         />
                     </View>*/}
                     <View style={styles.orgSection}>
-                        <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('OneUser')}
-                        >
-                            <Text style={styles.orgName}>
-                                {item.name}
-                            </Text>
-                            {
-                                item.des.split('/').map(permission => (
-                                    <Text style={styles.orgDes}>
-                                        {permission}
-                                    </Text>
-                                ))
-                            }
-                        </TouchableOpacity>
+                        <Text style={styles.orgName}>
+                            {item.name}
+                        </Text>
+                        {
+                            item.des.split('/').map(permission => (
+                                <Text style={styles.orgDes}>
+                                    {permission}
+                                </Text>
+                            ))
+                        }
                     </View>
                     <View style={styles.orgBehavior}>
                         <TouchableOpacity
@@ -82,7 +94,7 @@ class CommunityAll extends Component {
                         <TouchableOpacity
                             onPress={() => alert('修改')}
                         >
-                            <Icon name="md-settings" size={25} style={{marginTop: 20}} />
+                            <Icon name="md-settings" size={25} style={{ marginTop: 20 }} />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -108,4 +120,4 @@ class CommunityAll extends Component {
     }
 }
 
-export default connect()(CommunityAll)
+export default connect()(Permission)
