@@ -9,37 +9,31 @@ const DATA = [
         id: 1,
         name: '人员接纳',
         des: '我是说明说明',
-        ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
     {
         id: 2,
         name: '人员清退',
         des: '我是说明说明',
-        ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
     {
         id: 3,
         name: '授权管理',
         des: '我是说明说明',
-        ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
     {
-        id: 1,
+        id: 4,
         name: '发布活动',
         des: '我是说明说明',
-        ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
     {
-        id: 2,
+        id: 5,
         name: '以组织名义回复',
         des: '我是说明说明',
-        ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
     {
-        id: 3,
+        id: 6,
         name: '处理组织信息',
         des: '我是说明说明',
-        ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
 ];
 class Permission extends Component {
@@ -65,12 +59,18 @@ class Permission extends Component {
         this.state = {
             dataSource: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2,
-            })
+            }),
+            selected: [1],
         }
     }
 
     componentDidMount() {
         this.initData();
+        this.props.navigation.setParams({ handleCheck: this.onActionSelected });
+    }
+
+    onActionSelected = () => {
+        alert(this.state.selected);
     }
 
     initData() {
@@ -79,38 +79,48 @@ class Permission extends Component {
         });
     }
 
-    renderItem = (item) => {
-        console.log(item.des.split('/'));
+    renderItem(item) {
+        const index = this.state.selected.indexOf(item.id);
+        const isSelected = index !== -1;
         return (
             <View style={styles.orgWrapper}>
-                <View style={styles.orgList}>
-                    {/*<View style={styles.orgHeader}>
-                        <Image
-                            resizeMode='stretch'
-                            style={{ width: 40, height: 40, }}
-                            source={{ uri: item.ava }}
-                        />
-                    </View>*/}
-                    <View style={styles.orgSection}>
-                        <Text style={styles.orgName}>
-                            {item.name}
-                        </Text>
-                        {
-                            item.des.split('/').map(permission => (
-                                <Text style={styles.orgDes}>
-                                    {permission}
-                                </Text>
-                            ))
+                <TouchableOpacity
+                    onPress={() => {
+                        if (isSelected) {
+                            const selected = this.state.selected.slice();
+                            selected.splice(index, 1);
+                            this.setState({
+                                selected,
+                            });
+                        } else {
+                            const selected = this.state.selected.slice();
+                            selected.push(item.id);
+                            this.setState({
+                                selected,
+                            });
                         }
+                    }}
+                >
+                    <View style={[styles.orgList, isSelected ? styles.orgListSelected : '']}>
+                        <View style={styles.orgSection}>
+                            <Text style={styles.orgName}>
+                                {item.name}
+                            </Text>
+                            {
+                                item.des.split('/').map(permission => (
+                                    <Text style={styles.orgDes}>
+                                        {permission}
+                                    </Text>
+                                ))
+                            }
+                        </View>
+                        <View style={styles.orgBehavior}>
+                            {
+                                isSelected && <Icon name="md-checkmark" size={25} />
+                            }
+                        </View>
                     </View>
-                    <View style={styles.orgBehavior}>
-                        <TouchableOpacity
-                            onPress={() => alert('修改')}
-                        >
-                            <Icon name="md-checkmark" size={25} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -121,7 +131,7 @@ class Permission extends Component {
                 <View style={{ paddingHorizontal: 20 }}>
                     <ListView
                         dataSource={this.state.dataSource}
-                        renderRow={this.renderItem}
+                        renderRow={this.renderItem.bind(this)}
                     />
                 </View>
             </ScrollView>

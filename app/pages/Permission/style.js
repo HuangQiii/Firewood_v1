@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { PALETTA, SIZE } from '../../../style/Common';
+import { PALETTA, SIZE } from '../../style/Common';
 
 const { width, height } = Dimensions.get('window');
 
@@ -18,6 +18,9 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     borderLeftWidth: 5,
     borderLeftColor: PALETTA.NORMAL_888,
+  },
+  orgListSelected: {
+    borderLeftColor: PALETTA.VITAL_LINK,
   },
   orgHeader: {
     width: 40,
