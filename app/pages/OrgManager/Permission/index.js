@@ -47,7 +47,9 @@ class Permission extends Component {
         this.state = {
             dataSource: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2,
-            })
+            }),
+            selected: [1],
+            role: [],
         }
     }
 
@@ -109,6 +111,13 @@ class Permission extends Component {
                     <View style={{ paddingVertical: 15, flexDirection: 'row', justifyContent: 'space-between', }}>
                         <Text style={styles.title}>已有权限</Text>
                         <Icon name="md-add" size={20} />
+                    </View>
+                    <View style={styles.trendsLabel}>
+                        {
+                            this.state.roles.map((role,i) => (
+                                <Text>{role}</Text>
+                            ))
+                        }
                     </View>
                     <ListView
                         dataSource={this.state.dataSource}
