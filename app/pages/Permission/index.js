@@ -61,7 +61,7 @@ class Permission extends Component {
                 rowHasChanged: (row1, row2) => row1 !== row2,
             }),
             selected: [1],
-            role: [],
+            roles: [],
         }
     }
 
@@ -128,34 +128,34 @@ class Permission extends Component {
 
     render() {
         return (
-            <ScrollView>
-                <View style={{ paddingHorizontal: 20 }}>
-                    <View style={{ paddingVertical: 15, flexDirection: 'row', justifyContent: 'space-between', }}>
-                        <Text style={styles.title}>给该角色授权</Text>
-                    </View>
-                    <View style={styles.orgWrapper}>
-                        <View style={styles.orgList}>
-                            <View style={styles.orgHeader}>
-                                <Image
-                                    resizeMode='stretch'
-                                    style={{ width: 40, height: 40, }}
-                                    source={{ uri: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4' }}
-                                />
-                            </View>
-                            <View style={styles.orgSection}>
-                                <TouchableOpacity
-                                    onPress={() => this.props.navigation.navigate('OneUser')}
-                                >
-                                    <Text style={styles.orgName}>
-                                        {'user1'}
-                                    </Text>
-                                    <Text style={styles.orgDes}>
-                                        {'user'}
-                                    </Text>
-                                </TouchableOpacity>
-                            </View>
+            <View style={{ paddingHorizontal: 20, flex: 1 }}>
+                <View style={{ paddingVertical: 15, flexDirection: 'row', justifyContent: 'space-between', }}>
+                    <Text style={styles.title}>给该角色授权</Text>
+                </View>
+                <View style={[styles.orgWrapper, {marginLeft: -20, marginRight: -20,}]}>
+                    <View style={[styles.orgList, {borderLeftWidth: 0,}]}>
+                        <View style={styles.orgHeader}>
+                            <Image
+                                resizeMode='stretch'
+                                style={{ width: 40, height: 40, }}
+                                source={{ uri: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4' }}
+                            />
+                        </View>
+                        <View style={styles.orgSection}>
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.navigate('OneUser')}
+                            >
+                                <Text style={styles.orgName}>
+                                    {'user1'}
+                                </Text>
+                                <Text style={styles.orgDes}>
+                                    {'user'}
+                                </Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
+                </View>
+                <View style={{ flex: 1 }}>
                     <View style={styles.trendsLabel}>
                         {
                             this.state.roles.map((role,i) => (
@@ -168,7 +168,7 @@ class Permission extends Component {
                         renderRow={this.renderItem.bind(this)}
                     />
                 </View>
-            </ScrollView>
+            </View>
         );
     }
 }

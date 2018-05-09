@@ -49,7 +49,7 @@ class Permission extends Component {
                 rowHasChanged: (row1, row2) => row1 !== row2,
             }),
             selected: [1],
-            role: [],
+            roles: [],
         }
     }
 
