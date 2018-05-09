@@ -79,9 +79,7 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
     {
-        Permission: {
-            screen: Permission,
-        },
+        
         Login: {
             screen: Login,
             navigationOptions: {
@@ -138,7 +136,9 @@ const App = StackNavigator(
         Reply: {
             screen: Reply,
         },
-        
+        Permission: {
+            screen: Permission,
+        },
     },
     {
         headerMode: 'screen',

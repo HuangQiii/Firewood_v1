@@ -7,19 +7,19 @@ import styles from './style';
 const DATA = [
     {
         id: 1,
-        name: '站长',
+        name: '人员接纳',
         des: '人员接纳/人员清退/授权管理/发布活动/以组织名义回复/处理组织信息',
         ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
     {
         id: 2,
-        name: '部门负责人',
+        name: '人员清退',
         des: '人员接纳/人员清退/授权管理/以组织名义回复/处理组织信息',
         ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
     {
         id: 3,
-        name: '部门成员',
+        name: '以组织名义回复',
         des: '人员接纳/人员清退/以组织名义回复',
         ava: 'https://avatars3.githubusercontent.com/u/13383310?s=96&v=4',
     },
@@ -49,7 +49,7 @@ class Permission extends Component {
                 rowHasChanged: (row1, row2) => row1 !== row2,
             }),
             selected: [1],
-            roles: [],
+            roles: ['啊啊'],
         }
     }
 
@@ -79,13 +79,9 @@ class Permission extends Component {
                         <Text style={styles.orgName}>
                             {item.name}
                         </Text>
-                        {
-                            item.des.split('/').map(permission => (
-                                <Text style={styles.orgDes}>
-                                    {permission}
-                                </Text>
-                            ))
-                        }
+                        <Text style={styles.orgDes}>
+                            {item.des}
+                        </Text>
                     </View>
                     <View style={styles.orgBehavior}>
                         <TouchableOpacity
