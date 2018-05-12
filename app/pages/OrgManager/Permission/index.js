@@ -49,7 +49,10 @@ class Permission extends Component {
                 rowHasChanged: (row1, row2) => row1 !== row2,
             }),
             selected: [1],
-            roles: ['啊啊'],
+            roles: [{
+                id: 1,
+                name: '管理员',
+            }],
         }
     }
 
@@ -83,7 +86,7 @@ class Permission extends Component {
                             {item.des}
                         </Text>
                     </View>
-                    <View style={styles.orgBehavior}>
+                    {/*<View style={styles.orgBehavior}>
                         <TouchableOpacity
                             onPress={() => alert('删除')}
                         >
@@ -94,7 +97,7 @@ class Permission extends Component {
                         >
                             <Icon name="md-settings" size={25} style={{ marginTop: 20 }} />
                         </TouchableOpacity>
-                    </View>
+                    </View>*/}
                 </View>
             </View>
         );
@@ -106,12 +109,22 @@ class Permission extends Component {
                 <View style={{ paddingHorizontal: 20 }}>
                     <View style={{ paddingVertical: 15, flexDirection: 'row', justifyContent: 'space-between', }}>
                         <Text style={styles.title}>已有权限</Text>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('AddRole')}
+                        >
                         <Icon name="md-add" size={20} />
+                        </TouchableOpacity>
                     </View>
-                    <View style={styles.trendsLabel}>
+                    <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 20 }}>
                         {
                             this.state.roles.map((role,i) => (
-                                <Text>{role}</Text>
+                                <TouchableOpacity
+                                    onPress={() => this.props.navigation.navigate('AddRole', { id: role.id })}
+                                >
+                                    <Text style={{ backgroundColor: '#477aac', color: '#fff', borderRadius: 5, paddingHorizontal: 10, }}>
+                                        {role.name}
+                                    </Text>
+                                </TouchableOpacity>
                             ))
                         }
                     </View>

@@ -19,6 +19,7 @@ import Write from '../pages/Write';
 import EditProp from '../pages/EditProp';
 import Reply from '../pages/Reply';
 import Permission from '../pages/Permission';
+import AddRole from '../pages/AddRole';
 
 import { PALETTA, SIZE } from '../style/Common';
 
@@ -138,6 +139,9 @@ const App = StackNavigator(
         },
         Permission: {
             screen: Permission,
+        },
+        AddRole: {
+            screen: AddRole,
         },
     },
     {
