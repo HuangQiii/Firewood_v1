@@ -9,6 +9,9 @@
 ![org](./screenshot/org.jpg)
 ![activity](./screenshot/activity.jpg)
 ![mine](./screenshot/mine.jpg)
+![org](./screenshot/org.jpg)
+![act](./screenshot/act.jpg)
+![permission](./screenshot/permission.jpg)
 
 ### 功能说明
 - 
