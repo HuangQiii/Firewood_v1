@@ -11,7 +11,7 @@
 ![mine](./screenshot/mine.jpg)
 ![org](./screenshot/org.jpg)
 ![act](./screenshot/act.jpg)
-![permission](./screenshot/permission.jpg)
+![permission](./screenshot/permission.png)
 
 ### 功能说明
 - 
