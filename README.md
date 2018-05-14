@@ -3,6 +3,8 @@
 
 **Support:react-native 0.54.0 react 16.3.0-alpha.1**
 
+尝试json-server模拟数据
+
 ### Screenshot
 
 ![home](./screenshot/home.jpg)
