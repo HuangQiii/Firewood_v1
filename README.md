@@ -3,8 +3,6 @@
 
 **Support:react-native 0.54.0 react 16.3.0-alpha.1**
 
-尝试json-server模拟数据
-
 ### Screenshot
 
 ![home](./screenshot/home.jpg)
@@ -45,8 +43,8 @@ This project is licenced under the [MIT License](http://opensource.org/licenses/
 - [x] 用户信息中心，查看信息、回复信息
 - [x] 组织创建
 - [x] 组织人员管理，接纳新成员，踢出成员
-- [ ] 组织角色管理
-- [ ] 组织成员授权
+- [x] 组织角色管理
+- [x] 组织成员授权
 - [x] 组织发布活动
 - [ ] 组织角色用户以组织名义回复信息和转发活动
 - [ ] 组织统计信息
